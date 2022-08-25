@@ -41,6 +41,6 @@ const root = createRoot(getNav)
 // console.log(root)
 
 root.render(
-  <h1>Hello World</h1>
+  <App/>
 )
 
