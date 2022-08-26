@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { ExplorerSVG } from '../svgs/ExplorerSVG'
 import { Header } from './Header'
 
 const navStyle: React.CSSProperties = {
@@ -10,11 +11,16 @@ const navStyle: React.CSSProperties = {
 }
 
 const spanStyles: React.CSSProperties = {
-  position: 'fixed',
-  marginTop: '50vh',
-  transform: 'rotate(270deg)',
-  zIndex: '50',
-  left: '-20px'
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'flex-start',
+  paddingTop: '16px',
+  height: '100vh',
+  width: '50px',
+  backgroundColor: 'var(--color-header-bg)',
+  borderRightColor: 'var(--color-border-muted)',
+  borderRightStyle: 'solid',
+  borderRightWidth: '1px'
 }
 
 const App = () => {
@@ -26,13 +32,17 @@ const App = () => {
 
   if (!showNav) {
     return (
-      <span
-      className='btn'
-        style={spanStyles}
-        onClick={handleClick}
+     <div
+        style={spanStyles} 
+        className='--color-page-header-bg'
       >
-        Git tree
-      </span>
+        <button
+          className="btn-link color-fg-muted"
+          onClick={handleClick}
+        >
+          <ExplorerSVG />
+        </button>
+     </div>
     )
   }
 

@@ -1,20 +1,17 @@
 import React from 'react'
-import { CrossSVG } from '../svgs/CrossSVG'
+import { ExplorerSVG } from '../svgs/ExplorerSVG'
 
 const styles: React.CSSProperties = {
   display: 'flex',
   alignItems: 'center',
   backgroundColor: 'var(--color-header-bg)',
   height: '62px',
-  paddingLeft: '32px'
+  paddingLeft: '13px'
 }
 
 const headerStyles: React.CSSProperties = {
+  paddingLeft: '16px',
   fontSize: '14px',
-}
-
-const buttonStyles: React.CSSProperties = {
-  flexGrow: '1'
 }
 
 interface Props {
@@ -28,17 +25,16 @@ export const Header: React.FC<Props> = ({ setShowNav }) => {
   }
 
   return (
-    <header className='flex-justify-between' style={styles}>
-      <h1 className='Header-link' style={headerStyles}>
-        Git tree
-      </h1>
+    <header style={styles}>
       <button
         className="btn-link color-fg-muted"
         onClick={handleClick}
-        style={buttonStyles}
       >
-        <CrossSVG />
+        <ExplorerSVG />
       </button>
+      <h1 className='Header-link' style={headerStyles}>
+        Git tree
+      </h1>
     </header>
   )
 }
