@@ -1,46 +1,21 @@
 import { createRoot } from "react-dom/client";
 import React from "react";
 import App from "./navbar/App"
-
-const getColour = () => {
-  const array = ['blue', 'red']
-  return array[Math.round(Math.random())]
-}
-
-const colour = getColour()
-
-document.body.style.border = `5px solid ${colour}`
+import { addGitPageContainer, createSidebarNav } from "./createElements";
 
 
-
-const container = document.createElement('div')
-container.style.flexGrow = '1'
-const children = document.body.innerHTML
-
-container.innerHTML = children
-
-document.body.innerHTML = container.outerHTML
-
-
+// add flex
 document.body.style.display = 'flex'
 
-const nav = document.createElement('nav')
-nav.id= 'nav'
-nav.style.height = '100vh'
-nav.style.backgroundColor = 'beige'
-nav.style.width = '200px'
+// containerise the github content
+addGitPageContainer()
+//creates sidebar
+createSidebarNav()
 
-document.body.prepend(nav)
-
-
-const getNav = document.getElementById('nav')
-console.log(getNav)
-
+const getNav = document.getElementById('gitTreeNav')
 
 const root = createRoot(getNav)
-// console.log(root)
 
 root.render(
   <App/>
 )
-
