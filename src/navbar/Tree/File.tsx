@@ -4,21 +4,6 @@ import React from 'react'
 
 import { FileSVG } from '../../svgs/FileSVG'
 
-const liStyles: React.CSSProperties = {
-  display: 'flex',
-  alignItems: 'center',
-  height: '38px',
-  borderBottomColor: 'var(--color-border-muted)',
-  borderBottomStyle: 'solid',
-  borderBottomWidth: '1px',
-  paddingLeft: '16px',
-  overflow: 'scroll'
-}
-
-const iconStyles: React.CSSProperties = {
-  marginRight: '16px'
-}
-
 interface Props {
   tree: TreeAPI
 }
@@ -29,13 +14,11 @@ export const File: React.FC<Props> = ({tree}) => {
   const repo = 'ElectronOAuth'
   const branch = 'main'
 
-  console.log(tree)
-
   const urlString = `https://github.com/${user}/${repo}/blob/${branch}/${tree.path}` 
   
   return (
-    <li style={liStyles}>
-    <div style={iconStyles}>
+    <li className='GitTree-treeItem'>
+    <div className='GitTree-marginRight'>
       <FileSVG />
     </div>
     {/* css class supplied by github 

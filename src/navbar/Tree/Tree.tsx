@@ -2,13 +2,9 @@ import React from 'react'
 import { File } from './File'
 import { Folder } from './Folder'
 
-const list: React.CSSProperties = {
-  margin: '8px',
-}
-
 export const Tree: React.FC<Props> = ({treeData}) => {
   return (
-    <ul style={list}>
+    <ul className='GitTree-margin'>
       {treeData.map((tree) => {
         if (tree.type === 'blob') {
           return (

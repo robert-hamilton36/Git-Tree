@@ -4,26 +4,9 @@ import { Header } from './Header'
 
 import { ExplorerSVG } from '../svgs/ExplorerSVG'
 
-const navStyle: React.CSSProperties = {
-  height: '100vh',
-  width: '200px',
-  borderRightColor: 'var(--color-border-muted)',
-  borderRightStyle: 'solid',
-  borderRightWidth: '1px'
-}
-
-const spanStyles: React.CSSProperties = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'flex-start',
-  paddingTop: '16px',
-  height: '100vh',
-  width: '50px',
-  backgroundColor: 'var(--color-header-bg)',
-  borderRightColor: 'var(--color-border-muted)',
-  borderRightStyle: 'solid',
-  borderRightWidth: '1px'
-}
+/*
+  css classes --color-page-header-bg && btn-link color-fg-muted supplied by github
+*/
 
 const App = () => {
   const [showNav, setShowNav] = useState(true)
@@ -35,8 +18,7 @@ const App = () => {
   if (!showNav) {
     return (
      <div
-        style={spanStyles} 
-        className='--color-page-header-bg'
+        className='--color-page-header-bg GitTree-closedNavigator GitTree-border'
       >
         <button
           className="btn-link color-fg-muted"
@@ -50,8 +32,7 @@ const App = () => {
 
   return (
     <div 
-      style={navStyle} 
-      className='--color-page-header-bg'
+      className='--color-page-header-bg GitTree-openNavigator GitTree-border'
     >
       <Header setShowNav={setShowNav} />
       <Content />
