@@ -23,7 +23,7 @@ export const Header: React.FC<Props> = ({ setShowNav }) => {
       </button>
       {/* css class supplied by github */}
       <h1 className='Header-link Header'>
-        Git tree
+        Git Tree
       </h1>
     </header>
   )
