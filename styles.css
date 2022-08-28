@@ -51,7 +51,6 @@
   border-bottom-style: solid;
   border-bottom-width: 1px;
   padding-left: 16px;
-  overflow: scroll;
 }
 
 .GitTree-marginRight {
@@ -64,4 +63,11 @@
 
 .GitTree-pointer {
   cursor: pointer;
+}
+
+.GitTree-Ellipsis {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
