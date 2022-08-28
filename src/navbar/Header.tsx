@@ -1,9 +1,11 @@
 import React from 'react'
+
 import { ExplorerSVG } from '../svgs/ExplorerSVG'
 
 const styles: React.CSSProperties = {
   display: 'flex',
   alignItems: 'center',
+  //  colour variable supplied by github
   backgroundColor: 'var(--color-header-bg)',
   height: '62px',
   paddingLeft: '13px'
@@ -27,6 +29,7 @@ export const Header: React.FC<Props> = ({ setShowNav }) => {
   return (
     <header style={styles}>
       <button
+        // css class supplied by github
         className="btn-link color-fg-muted"
         onClick={handleClick}
       >
