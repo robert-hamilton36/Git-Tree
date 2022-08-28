@@ -10,15 +10,15 @@ export const Content = () => {
 
   if(tree.length === 0) {
     return (
-      <div className='GitTree-treeContainer'>
+      <main className='GitTree-treeContainer'>
         <h1>Loading ...</h1>
-      </div>
+      </main>
     )
   }
 
   return (
-    <div className='GitTree-treeContainer'>
+    <main className='GitTree-treeContainer'>
       <Tree treeData={filterTree(data)} />
-    </div>
+    </main>
   )
 }
