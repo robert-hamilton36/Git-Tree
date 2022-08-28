@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { ExplorerSVG } from '../svgs/ExplorerSVG'
+import { Content } from './Content'
 import { Header } from './Header'
+
+import { ExplorerSVG } from '../svgs/ExplorerSVG'
 
 const navStyle: React.CSSProperties = {
   height: '100vh',
@@ -52,7 +54,7 @@ const App = () => {
       className='--color-page-header-bg'
     >
       <Header setShowNav={setShowNav} />
-      <div>Hello</div>
+      <Content />
     </div>
   )
 }
