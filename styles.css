@@ -1,0 +1,73 @@
+.GitTree-openNavigator {
+  height: 100vh;
+  width: 200px;
+  /* colour variable supplied by github */
+  border-right-color: var(--color-border-muted);
+  border-right-style: solid;
+  border-right-width: 1px;
+}
+
+.GitTree-closedNavigator {
+  height: 100vh;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 16px;
+  /* colour variable supplied by github */
+  background-color: var(--color-header-bg);
+}
+
+.GitTree-border {
+  /* colour variable supplied by github */
+  border-right-color: var(--color-border-muted);
+  border-right-style: solid;
+  border-right-width: 1px;
+}
+
+.GitTree-header {
+  display: flex;
+  align-items: center;
+  /* colour variable supplied by github */
+  background-color: var(--color-header-bg);
+  height: 62px;
+  padding-left: 13px;
+}
+
+.GitTree-treeContainer {
+  border-width: 1px;
+  border-color: var(--color-border-muted);
+  border-style: solid;
+  border-radius: 5px;
+  /* potentially remove */
+  margin: 8px;
+}
+
+.GitTree-treeItem {
+  display: flex;
+  align-items: center;
+  height: 38px;
+  border-bottom-color: var(--color-border-muted);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  padding-left: 16px;
+}
+
+.GitTree-marginRight {
+  margin-right: 16px;
+}
+
+.GitTree-margin {
+  margin: 8px;
+}
+
+.GitTree-pointer {
+  cursor: pointer;
+}
+
+.GitTree-Ellipsis {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

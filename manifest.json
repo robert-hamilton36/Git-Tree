@@ -17,6 +17,7 @@
       {
         "matches": ["*://*.github.com/*/*"],
         "js": ["content-script.js"],
+        "css": ["styles.css"],
         "run_at": "document_end"
       }
   ]

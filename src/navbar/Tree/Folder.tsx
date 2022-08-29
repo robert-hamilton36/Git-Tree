@@ -10,21 +10,6 @@ import { OpenFolderSVG } from '../../svgs/OpenFolderSVG'
 
 import { data } from '../../../devdata'
 
-const liStyles: React.CSSProperties = {
-  display: 'flex',
-  alignItems: 'center',
-  height: '38px',
-  borderBottomColor: 'var(--color-border-muted)',
-  borderBottomStyle: 'solid',
-  borderBottomWidth: '1px',
-  paddingLeft: '16px',
-  overflow: 'scroll'
-}
-
-const iconStyles: React.CSSProperties = {
-  marginRight: '16px'
-}
-
 interface Props {
   tree: TreeAPI
 }
@@ -38,8 +23,8 @@ export const Folder: React.FC<Props> = ({tree}) => {
 
   return (
     <>
-      <li role='button' onClick={handleClick} style={liStyles}>
-        <div style={iconStyles}>
+      <li className='GitTree-treeItem GitTree-pointer' role='button' onClick={handleClick} >
+        <div className='GitTree-marginRight'>
           {open ? <OpenFolderSVG /> : <FolderSVG />}
         </div>
         {path.basename(tree.path)}

@@ -2,20 +2,6 @@ import React from 'react'
 
 import { ExplorerSVG } from '../svgs/ExplorerSVG'
 
-const styles: React.CSSProperties = {
-  display: 'flex',
-  alignItems: 'center',
-  //  colour variable supplied by github
-  backgroundColor: 'var(--color-header-bg)',
-  height: '62px',
-  paddingLeft: '13px'
-}
-
-const headerStyles: React.CSSProperties = {
-  paddingLeft: '16px',
-  fontSize: '14px',
-}
-
 interface Props {
   setShowNav: React.Dispatch<React.SetStateAction<boolean>>
 }
@@ -27,7 +13,7 @@ export const Header: React.FC<Props> = ({ setShowNav }) => {
   }
 
   return (
-    <header style={styles}>
+    <header className='GitTree-header'>
       <button
         // css class supplied by github
         className="btn-link color-fg-muted"
@@ -35,8 +21,9 @@ export const Header: React.FC<Props> = ({ setShowNav }) => {
       >
         <ExplorerSVG />
       </button>
-      <h1 className='Header-link' style={headerStyles}>
-        Git tree
+      {/* css class supplied by github */}
+      <h1 className='Header-link Header'>
+        Git Tree
       </h1>
     </header>
   )
