@@ -1,7 +1,7 @@
 import { createRoot } from "react-dom/client";
 import React from "react";
 import App from "./App"
-import { addGitPageContainer, createSidebarNav } from "./createElements";
+import { addGitPageContainer, createSidebarNav } from "./util/createElements";
 
 // add flex
 document.body.style.display = 'flex'
