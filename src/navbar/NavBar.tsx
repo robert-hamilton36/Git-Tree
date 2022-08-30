@@ -8,7 +8,7 @@ import { ExplorerSVG } from '../svgs/ExplorerSVG'
   css classes --color-page-header-bg && btn-link color-fg-muted supplied by github
 */
 
-const App = () => {
+export const NavBar = () => {
   const [showNav, setShowNav] = useState(true)
 
   const handleClick = () => {
@@ -39,5 +39,3 @@ const App = () => {
     </div>
   )
 }
-
-export default App

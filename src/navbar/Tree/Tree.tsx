@@ -5,15 +5,15 @@ import { Folder } from './Folder'
 export const Tree: React.FC<Props> = ({treeData}) => {
   return (
     <ul className='GitTree-margin'>
-      {treeData.map((tree) => {
-        if (tree.type === 'blob') {
+      {treeData.map((item) => {
+        if (item.type === 'blob') {
           return (
-            <File key={tree.sha} tree={tree}/>
+            <File key={item.sha} item={item}/>
           )
         }
-        if (tree.type === 'tree') {
+        if (item.type === 'tree') {
           return (
-            <Folder key={tree.sha} tree={tree}/>
+            <Folder key={item.sha} item={item}/>
           )
         }
       })}

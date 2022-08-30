@@ -4,7 +4,10 @@ const path = require('path');
 module.exports = {
   mode: 'development',
   devtool: "source-map",
-  entry: './src/content-script.tsx',
+  entry: {
+    ['content-script'] :'./src/content-script.tsx',
+    background: './src/background.ts'
+  },
   module: {
     rules: [
       {
@@ -18,7 +21,7 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
-    filename: 'content-script.js',
+    filename: '[name].js',
     path: path.resolve(__dirname),
   },
 };
