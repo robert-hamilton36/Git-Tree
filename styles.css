@@ -8,7 +8,7 @@
 }
 
 .GitTree-closedNavigator {
-  height: 100vh;
+  height: max(100vh, 100%);
   width: 50px;
   display: flex;
   justify-content: center;
