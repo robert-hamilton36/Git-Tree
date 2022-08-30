@@ -36,6 +36,7 @@
 
 .GitTree-treeContainer {
   border-width: 1px;
+  /* colour variable supplied by github */
   border-color: var(--color-border-muted);
   border-style: solid;
   border-radius: 5px;
@@ -47,6 +48,7 @@
   display: flex;
   align-items: center;
   height: 38px;
+  /* colour variable supplied by github */
   border-bottom-color: var(--color-border-muted);
   border-bottom-style: solid;
   border-bottom-width: 1px;
@@ -65,7 +67,7 @@
   cursor: pointer;
 }
 
-.GitTree-Ellipsis {
+.GitTree-ellipsis {
   display: block;
   white-space: nowrap;
   overflow: hidden;

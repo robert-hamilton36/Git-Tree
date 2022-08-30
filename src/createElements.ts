@@ -22,6 +22,6 @@ export const removeGitPageContainer = () => {
 // Creates the nav container and inserts before github content
 export const createSidebarNav = () => {
   const nav = document.createElement('nav')
-  nav.id = 'gitTreeNav'
+  nav.id = 'GitTree-Nav'
   document.body.prepend(nav)
 }

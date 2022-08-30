@@ -11,7 +11,7 @@ addGitPageContainer()
 //creates sidebar
 createSidebarNav()
 
-const getNav = document.getElementById('gitTreeNav')
+const getNav = document.getElementById('GitTree-Nav')
 
 const root = createRoot(getNav)
 
