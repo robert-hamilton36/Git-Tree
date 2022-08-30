@@ -3,12 +3,13 @@ import path from 'path-browserify'
 import React, { useState } from 'react'
 import { Tree } from './Tree'
 
+import { useTree } from '../../contexts/TreeContext'
+
 import { filterTree } from '../../util/filterTree'
 
 import { FolderSVG } from '../../svgs/FolderSVG'
 import { OpenFolderSVG } from '../../svgs/OpenFolderSVG'
 
-import { data } from '../../../devdata'
 
 interface Props {
   item: TreeAPI
@@ -16,6 +17,7 @@ interface Props {
 
 export const Folder: React.FC<Props> = ({item}) => {
   const [open, setOpen] = useState(false)
+  const { tree } = useTree()
 
   const handleClick = () => {
     setOpen(state => !state)
@@ -29,7 +31,7 @@ export const Folder: React.FC<Props> = ({item}) => {
         </div>
         {path.basename(item.path)}
       </li>
-      {open && <Tree treeData={filterTree(data, item.path)}/>}
+      {open && <Tree treeData={filterTree(tree, item.path)}/>}
     </>
   )
 }
