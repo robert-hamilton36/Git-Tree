@@ -5,16 +5,16 @@ import React from 'react'
 import { FileSVG } from '../../svgs/FileSVG'
 
 interface Props {
-  tree: TreeAPI
+  item: TreeAPI
 }
 
-export const File: React.FC<Props> = ({tree}) => {
+export const File: React.FC<Props> = ({item}) => {
 
   const user = 'robert-hamilton36'
   const repo = 'ElectronOAuth'
   const branch = 'main'
 
-  const urlString = `https://github.com/${user}/${repo}/blob/${branch}/${tree.path}` 
+  const urlString = `https://github.com/${user}/${repo}/blob/${branch}/${item.path}` 
   
   return (
     <li className='GitTree-treeItem'>
@@ -26,7 +26,7 @@ export const File: React.FC<Props> = ({tree}) => {
       adding those attributes to our links, 'hacks' into githubs under the hood data fetching to change the page
     */}
     <a className='Link--primary GitTree-Ellipsis' data-pjax="#repo-content-pjax-container" data-turbo-frame="repo-content-turbo-frame" href={urlString}>
-      {path.basename(tree.path)}
+      {path.basename(item.path)}
     </a>
   </li>
   )

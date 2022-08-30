@@ -11,10 +11,10 @@ import { OpenFolderSVG } from '../../svgs/OpenFolderSVG'
 import { data } from '../../../devdata'
 
 interface Props {
-  tree: TreeAPI
+  item: TreeAPI
 }
 
-export const Folder: React.FC<Props> = ({tree}) => {
+export const Folder: React.FC<Props> = ({item}) => {
   const [open, setOpen] = useState(false)
 
   const handleClick = () => {
@@ -27,9 +27,9 @@ export const Folder: React.FC<Props> = ({tree}) => {
         <div className='GitTree-marginRight'>
           {open ? <OpenFolderSVG /> : <FolderSVG />}
         </div>
-        {path.basename(tree.path)}
+        {path.basename(item.path)}
       </li>
-      {open && <Tree treeData={filterTree(data, tree.path)}/>}
+      {open && <Tree treeData={filterTree(data, item.path)}/>}
     </>
   )
 }
