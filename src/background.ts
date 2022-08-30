@@ -24,8 +24,6 @@ const fetcherBranch = async (url: string) => {
 // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage#sending_a_synchronous_response
 browser.runtime.onMessage.addListener((message: IMessage) => {
   if (message.type === 'fetch') {
-    console.log('return')
-    console.log(message.url)
     return fetcherBranch(message.url)
   }
 })
