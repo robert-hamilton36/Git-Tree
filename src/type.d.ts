@@ -6,3 +6,8 @@ interface TreeAPI {
   size?: number;
   url: string;
 }
+
+interface IMessage {
+  type: 'fetch';
+  url: string
+}

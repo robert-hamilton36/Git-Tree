@@ -10,15 +10,15 @@
   ],
 
   "background": {
-      "scripts": [ "background.js" ]
+    "scripts": [ "background.js" ]
   },
 
   "content_scripts": [
-      {
-        "matches": ["*://*.github.com/*/*"],
-        "js": ["content-script.js"],
-        "css": ["styles.css"],
-        "run_at": "document_end"
-      }
+    {
+      "matches": ["*://*.github.com/*/*"],
+      "js": ["content-script.js"],
+      "css": ["styles.css"],
+      "run_at": "document_end"
+    }
   ]
 }
