@@ -12,15 +12,8 @@ export const addGitPageContainer = () => {
   document.body.appendChild(container)
 }
 
-// Undos addGitPageContainer
-export const removeGitPageContainer = () => {
-  const container = document.getElementById('insertedContainer')
-  document.body.style.display = 'block'
-  container.replaceWith(...Array.from(container.childNodes))
-}
-
 // Creates the nav container and inserts before github content
-export const createSidebarNav = () => {
+export const addSidebarNav = () => {
   const nav = document.createElement('nav')
   nav.id = 'GitTree-nav'
   document.body.prepend(nav)
