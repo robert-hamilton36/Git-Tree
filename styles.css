@@ -19,13 +19,6 @@
   background-color: var(--color-header-bg);
 }
 
-.GitTree-border {
-  /* colour variable supplied by github */
-  border-right-color: var(--color-border-muted);
-  border-right-style: solid;
-  border-right-width: 1px;
-}
-
 .GitTree-header {
   display: flex;
   align-items: center;
@@ -76,11 +69,11 @@
 }
 
 .GitTree-ResizeBorder {
-  width: 2px;
+  width: 3px;
   height: max(100vh, 100%);
   cursor: col-resize;
   /* colour variable supplied by github */
   border-right-color: var(--color-border-muted);
   border-right-style: solid;
-  border-right-width: 2px;
+  border-right-width: 3px;
 }
