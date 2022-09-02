@@ -1,6 +1,10 @@
 import React from 'react'
 import { ExplorerSVG } from '../svgs/ExplorerSVG'
 
+/*
+  css classes --color-page-header-bg && btn-link color-fg-muted supplied by github
+*/
+
 export const ClosedNav: React.FC<Props> = ({setShowNav}) => {
 
   const handleClick = () => {
@@ -8,7 +12,7 @@ export const ClosedNav: React.FC<Props> = ({setShowNav}) => {
   }
   return (
     <div
-      className='--color-page-header-bg GitTree-closedNavigator GitTree-border'
+      className='--color-page-header-bg GitTree-closedNavigator'
     >
       <button
         className="btn-link color-fg-muted"

@@ -5,7 +5,7 @@ const minWidth = 200
 
 /**
  *  Element has full height
- *  2px width
+ *  3px width
  * 
  * Resizing occurs with three different mouse events
  * 1. mousedown
@@ -20,7 +20,7 @@ const minWidth = 200
  *      it sets the navWidth
  */
 
-export const ResizeBorder: React.FC<Children> = ({children}) => {
+export const ResizeBorder: React.FC<Props> = ({children, showNav, setShowNav}) => {
   const { setNavWidth } = useNavWidth()
   const [ resizingActive, setResizingActive ] = useState(false)
   
@@ -42,8 +42,18 @@ export const ResizeBorder: React.FC<Children> = ({children}) => {
     }
 
     // only resize navbar if resizing is active and resize would be larger than minwidth
-    if(resizingActive && event.pageX > minWidth) {
+    if (resizingActive && event.pageX > minWidth) {
       setNavWidth(event.pageX)
+    }
+    
+    // close navbar when dragged below 50
+    if (showNav && resizingActive && event.pageX <= 50) {
+      setShowNav(false)
+    }
+
+    //open navbar when dragged beyond 100
+    if (!showNav && resizingActive && event.pageX >= 100) {
+      setShowNav(true)
     }
   } 
   
@@ -64,6 +74,9 @@ export const ResizeBorder: React.FC<Children> = ({children}) => {
   )
 }
 
-interface Children {
-  children?: React.ReactNode
+interface Props {
+  children?: React.ReactNode;
+  showNav: boolean;
+  setShowNav: React.Dispatch<React.SetStateAction<boolean>>;
+
 }
