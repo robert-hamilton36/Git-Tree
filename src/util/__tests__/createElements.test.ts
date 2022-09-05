@@ -19,6 +19,16 @@ const fakeGitHubPage =
 
 
 describe('addGitPageContainer()', () => {
+  test('adds div to empty body', () => {
+    expect(document.getElementById('GitTree-Container')).toBeNull()
+
+    addGitPageContainer()
+
+    const container = document.getElementById('GitTree-Container')
+    expect(container).toBeTruthy()
+    expect(document.body.innerHTML).toBe('<div id="GitTree-Container" style="flex-grow: 1;"></div>')
+  })
+
   test('adds a div around document.body children', () => {
     document.body.innerHTML = fakeGitHubPage
     expect(document.getElementById('GitTree-Container')).toBeNull()
