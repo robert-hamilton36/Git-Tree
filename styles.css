@@ -1,5 +1,8 @@
 #GitTree-nav {
   display: flex;
+  position: sticky;
+  top: 0;
+  height: 100vh;
 }
 
 .GitTree-openNavigator {
