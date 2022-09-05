@@ -1,8 +1,20 @@
+/**
+ *  Creates a div and puts the regular github content inside this div
+ * 
+ *  document.body.children = <main> stuff </main>
+ * 
+ * turns into
+ * 
+ *  document.body.children = 
+ *     <div id='GitTree-Container'>
+ *         <main> stuff </main>
+ *     </div>
+ *  
+ */
 
-// Creates a div and puts the regular github content inside this div
 export const addGitPageContainer = () => {
   const container = document.createElement('div')
-  container.id = 'insertedContainer'
+  container.id = 'GitTree-Container'
   container.style.flexGrow = '1'
 
   const children = document.body.childNodes
@@ -12,6 +24,22 @@ export const addGitPageContainer = () => {
   document.body.appendChild(container)
 }
 
+/**
+ * Creates the nav container and inserts before github content
+ * 
+ * document.body.children = 
+ *     <div id='GitTree-Container'>
+ *         <main> stuff </main>
+ *     </div>
+ * 
+ * turns into 
+ * 
+ * * document.body.children = 
+ *     <nav id='GitTree-nav'> </nav>
+ *     <div id='GitTree-Container'>
+ *         <main> stuff </main>
+ *     </div>
+ */
 // Creates the nav container and inserts before github content
 export const addSidebarNav = () => {
   const nav = document.createElement('nav')
