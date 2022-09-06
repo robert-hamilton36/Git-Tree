@@ -1,16 +1,13 @@
 import React from 'react'
-import { NavWidthProvider } from './contexts/NavWidthContext'
-import { TreeProvider } from './contexts/TreeContext'
+import { Providers } from './contexts/Providers'
 import { NavBar } from './navbar/NavBar'
 
 
 const App = () => {
   return (
-    <TreeProvider>
-      <NavWidthProvider>
-        <NavBar />
-      </NavWidthProvider>
-    </TreeProvider>
+    <Providers>
+      <NavBar />
+    </Providers>
   )
 }
 

@@ -6,7 +6,7 @@ export function useTree (): Context {
   return useContext(TreeContext)
 }
 
-export const TreeProvider: React.FC<Children> = ({ children }) => {
+export const TreeProvider: React.FC<ReactChildren> = ({ children }) => {
   const [tree, setTree] = useState<TreeAPI[]>([])
 
   const value = {
@@ -19,10 +19,6 @@ export const TreeProvider: React.FC<Children> = ({ children }) => {
       {children}
     </TreeContext.Provider>
   )
-}
-
-interface Children {
-  children: React.ReactNode
 }
 
 interface Context {
