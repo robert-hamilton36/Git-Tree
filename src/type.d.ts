@@ -18,3 +18,7 @@ interface IMessage {
   type: 'fetch';
   url: string
 }
+
+interface ReactChildren {
+  children: React.ReactNode
+} 

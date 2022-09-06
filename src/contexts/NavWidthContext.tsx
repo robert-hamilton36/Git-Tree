@@ -6,7 +6,7 @@ export function useNavWidth (): Context {
   return useContext(NavWidthContext)
 }
 
-export const NavWidthProvider: React.FC<Children> = ({ children }) => {
+export const NavWidthProvider: React.FC<ReactChildren> = ({ children }) => {
   const [navWidth, setNavWidth] = useState(201)
 
   const value = {
@@ -21,9 +21,6 @@ export const NavWidthProvider: React.FC<Children> = ({ children }) => {
   )
 }
 
-interface Children {
-  children: React.ReactNode
-}
 
 interface Context {
   navWidth: number,
