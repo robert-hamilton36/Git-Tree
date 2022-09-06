@@ -10,12 +10,12 @@ export const fetchTree = () => {
       const url = document.location.href
 
       // this mess of a regex searches for '://' or '/'
-      const reg = /:\/\/|\//
+      const regex = /:\/\/|\//
   
       // splits url i.e https://github.com/robert-hamilton36/GitTree/tree/main
       // into ['https', 'github.com', 'robert-hamilton36', 'GitTree', 'tree', 'main']
       //      [ scheme, domain      , user               , repo     , action, branch]
-      const urlArray = url.split(reg)
+      const urlArray = url.split(regex)
       
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const [ _scheme, _domain, user = '', repo = '', _action, branch = 'main' ] = urlArray
