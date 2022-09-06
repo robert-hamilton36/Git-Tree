@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react'
 
+const startingWidth = 201
+
 const NavWidthContext = React.createContext<Context>(null)
 
 export function useNavWidth (): Context {
@@ -7,7 +9,7 @@ export function useNavWidth (): Context {
 }
 
 export const NavWidthProvider: React.FC<ReactChildren> = ({ children }) => {
-  const [navWidth, setNavWidth] = useState(201)
+  const [navWidth, setNavWidth] = useState(startingWidth)
 
   const value = {
     navWidth,
@@ -21,6 +23,7 @@ export const NavWidthProvider: React.FC<ReactChildren> = ({ children }) => {
   )
 }
 
+export const TestStartingWidth = startingWidth
 
 interface Context {
   navWidth: number,
