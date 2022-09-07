@@ -17,7 +17,9 @@
       "sourceType": "module"
     },
     "extends": [
-      "plugin:@typescript-eslint/recommended"
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended",
+      "plugin:react-hooks/recommended"
     ],
     "ignorePatterns": [
       "content-script.js"
@@ -31,7 +33,6 @@
     },
     "setupFiles": [
       "./src/testing/setup/jsdom.js"
-  
     ]
   },
   "devDependencies": {
@@ -45,7 +46,9 @@
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.35.1",
     "@typescript-eslint/parser": "^5.35.1",
-    "eslint": "^8.22.0",
+    "eslint": "^8.23.0",
+    "eslint-plugin-react": "^7.31.7",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "jest": "^29.0.2",
     "jsdom": "^20.0.0",
     "ts-loader": "^9.3.1",
