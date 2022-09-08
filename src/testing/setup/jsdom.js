@@ -1,5 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { JSDOM } = require('jsdom')
+require('jest-webextension-mock')
 
 const dom = new JSDOM('<body></body>', {
   beforeParse (window) {
