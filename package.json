@@ -34,7 +34,8 @@
     },
     "setupFiles": [
       "./testing/setup/setup.ts"
-    ]
+    ],
+    "setupFilesAfterEnv": ["./testing/setup/msw.ts"]
   },
   "devDependencies": {
     "@swc/core": "^1.2.247",
