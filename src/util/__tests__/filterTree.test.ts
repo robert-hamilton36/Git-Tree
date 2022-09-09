@@ -1,4 +1,4 @@
-import { blobOnlyArraySorted, blobOnlyArrayUnsorted, filteredByRoot, filteredBySrc, filteredBySrcNavbar, treeAndBlobArraySorted, treeAndBlobArrayUnsorted, treeOnlyArraySorted, treeOnlyArrayUnsorted } from "../../testing/testdata/GithubTree";
+import { blobOnlyArraySorted, blobOnlyArrayUnsorted, filteredByRoot, filteredBySrc, filteredBySrcNavbar, treeAndBlobArraySorted, treeAndBlobArrayUnsorted, treeOnlyArraySorted, treeOnlyArrayUnsorted } from "../../../testing/testdata/GithubTree";
 import { filterTree, TestSorter } from "../filterTree";
 
 describe('sorter()', () => {

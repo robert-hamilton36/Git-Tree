@@ -32,7 +32,7 @@
       ]
     },
     "setupFiles": [
-      "./src/testing/setup/jsdom.js"
+      "./testing/setup/jsdom.js"
     ]
   },
   "devDependencies": {

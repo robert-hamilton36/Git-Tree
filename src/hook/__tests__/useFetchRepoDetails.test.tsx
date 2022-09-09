@@ -10,7 +10,7 @@ import { sendFetchBranchMessage, sendFetchTreeMessage } from '../../util/sendMes
 import { parseUrl } from '../../util/parseUrl'
 
 
-import { blobOnlyArraySorted } from "../../testing/testdata/GithubTree"
+import { blobOnlyArraySorted } from "../../../testing/testdata/GithubTree"
 
 jest.mock('../../contexts/GitRepoContexts')
 jest.mock('../../contexts/TreeContext')

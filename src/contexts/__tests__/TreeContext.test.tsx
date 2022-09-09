@@ -1,7 +1,7 @@
 import React from 'react'
 import { renderHook, act } from '@testing-library/react'
 import { TreeProvider, useTree } from '../TreeContext'
-import { treeAndBlobArraySorted } from '../../testing/testdata/GithubTree'
+import { treeAndBlobArraySorted } from '../../../testing/testdata/GithubTree'
 
 describe('<TreeProvider>', () => {
   test('renders provider with initial state []', () => {

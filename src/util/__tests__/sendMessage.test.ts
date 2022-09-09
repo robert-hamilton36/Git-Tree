@@ -1,6 +1,6 @@
 import { sendFetchBranchMessage, sendFetchTreeMessage } from "../sendMessage"
-import { blobOnlyArrayUnsorted } from "../../testing/testdata/GithubTree"
-import { FetchTreeTestMessage, FetchBranchTestMessage, ReturnErrorTestMessage, ReturnTreeTestMessage, ReturnBranchTestMessage } from "../../testing/testdata/Messages"
+import { blobOnlyArrayUnsorted } from "../../../testing/testdata/GithubTree"
+import { FetchTreeTestMessage, FetchBranchTestMessage, ReturnErrorTestMessage, ReturnTreeTestMessage, ReturnBranchTestMessage } from "../../../testing/testdata/Messages"
 
 const MockedBrowserRuntimeSendMessage = browser.runtime.sendMessage as jest.Mock
 
