@@ -2,12 +2,7 @@
 const { JSDOM } = require('jsdom')
 require('jest-webextension-mock')
 
-const dom = new JSDOM('<body></body>', {
-  beforeParse (window) {
-    window.innerWidth = 200
-    window.innerHeight = 400
-  }
-})
+const dom = new JSDOM('<body></body>', {})
 
 global.window = dom.window
 global.document = dom.window.document
