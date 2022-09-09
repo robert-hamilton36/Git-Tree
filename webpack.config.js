@@ -5,7 +5,7 @@ module.exports = {
   mode: 'development',
   devtool: "inline-source-map",
   entry: {
-    ['content-script'] :'./src/content-script.tsx',
+    ['content-script'] :'./content-script/content-script.tsx',
     background: './background/background.ts'
   },
   module: {
