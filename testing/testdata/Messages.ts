@@ -1,26 +1,27 @@
-import { blobOnlyArrayUnsorted } from "./GithubTree"
+import { TEST_blobOnlyArrayUnsorted } from "./GithubTree"
+import { TEST_BRANCH, TEST_FetchBranchAPIUrl, TEST_FetchTreeAPIUrl } from "./urls"
 
-export const FetchTreeTestMessage: IFetchMessage = {
+export const TEST_FetchTreeTestMessage: IFetchMessage = {
   type: 'fetchTree',
-  url: 'https://api.github.com/repos/robert-hamilton36/Git-tree/git/trees/main?recursive=1'
+  url: TEST_FetchTreeAPIUrl
 }
 
-export const FetchBranchTestMessage: IFetchMessage = {
+export const TEST_FetchBranchTestMessage: IFetchMessage = {
   type: 'fetchBranch',
-  url: 'https://api.github.com/repos/robert-hamilton36/Git-tree'
+  url: TEST_FetchBranchAPIUrl
 }
 
-export const ReturnBranchTestMessage: IReturnBranchMessage = {
+export const TEST_ReturnBranchTestMessage: IReturnBranchMessage = {
   type: 'branch',
-  data: 'main'
+  data: TEST_BRANCH
 }
 
-export const ReturnTreeTestMessage: IReturnTreeMessage = {
+export const TEST_ReturnTreeTestMessage: IReturnTreeMessage = {
   type: 'tree',
-  data: blobOnlyArrayUnsorted
+  data: TEST_blobOnlyArrayUnsorted
 }
 
-export const ReturnErrorTestMessage: IErrorMessage = {
+export const TEST_ReturnErrorTestMessage: IErrorMessage = {
   type: 'error',
   error: 'something went wrong'
 }

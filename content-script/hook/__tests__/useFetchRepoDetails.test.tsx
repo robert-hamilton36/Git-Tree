@@ -10,7 +10,8 @@ import { sendFetchBranchMessage, sendFetchTreeMessage } from '../../util/sendMes
 import { parseUrl } from '../../util/parseUrl'
 
 
-import { blobOnlyArraySorted } from "../../../testing/testdata/GithubTree"
+import { TEST_blobOnlyArraySorted } from "../../../testing/testdata/GithubTree"
+import { TEST_BRANCH, TEST_REPO, TEST_USER } from "../../../testing/testdata/urls"
 
 jest.mock('../../contexts/GitRepoContexts')
 jest.mock('../../contexts/TreeContext')
@@ -42,9 +43,9 @@ describe('useFetchRepoDetails()', () => {
   describe('url with a branch', () => {
     beforeAll(() => {
       MockParseUrl.mockReturnValue({
-        user: 'robert-hamilton36', 
-        repo: 'GitTree', 
-        branch:'main' 
+        user: TEST_USER, 
+        repo: TEST_REPO, 
+        branch: TEST_BRANCH 
       })
     })
 
@@ -79,12 +80,12 @@ describe('useFetchRepoDetails()', () => {
       expect(MockSetTree).toHaveBeenCalledTimes(0)
   
       await act(async () => {
-        await fetchTreeController.resolve(blobOnlyArraySorted)
+        await fetchTreeController.resolve(TEST_blobOnlyArraySorted)
       })
   
       expect(MockSendFetchTreeMessage).toHaveBeenCalledWith('robert-hamilton36', 'GitTree', 'main')
       expect(MockSetTree).toHaveBeenCalledTimes(1)
-      expect(MockSetTree).toHaveBeenCalledWith(blobOnlyArraySorted)
+      expect(MockSetTree).toHaveBeenCalledWith(TEST_blobOnlyArraySorted)
   
       expect(result.current.loading).toBeFalsy()
       expect(result.current.error).toBeNull()
@@ -188,13 +189,13 @@ describe('useFetchRepoDetails()', () => {
       expect(MockSetTree).toHaveBeenCalledTimes(0)
 
       await act(async () => {
-        await fetchTreeController.resolve(blobOnlyArraySorted)
+        await fetchTreeController.resolve(TEST_blobOnlyArraySorted)
       })
       expect(MockSendFetchTreeMessage).toHaveBeenCalledTimes(1)
       expect(MockSendFetchTreeMessage).toHaveBeenCalledWith('robert-hamilton36', 'GitTree', 'main')
 
       expect(MockSetTree).toHaveBeenCalledTimes(1)
-      expect(MockSetTree).toHaveBeenCalledWith(blobOnlyArraySorted)
+      expect(MockSetTree).toHaveBeenCalledWith(TEST_blobOnlyArraySorted)
 
       expect(result.current.loading).toBeFalsy()
       expect(result.current.error).toBeNull()
@@ -246,7 +247,7 @@ describe('useFetchRepoDetails()', () => {
       expect(MockSetTree).toHaveBeenCalledTimes(0)
 
       await act(async () => {
-        await fetchTreeController.resolve(blobOnlyArraySorted)
+        await fetchTreeController.resolve(TEST_blobOnlyArraySorted)
       })
 
       expect(MockSendFetchTreeMessage).toHaveBeenCalledTimes(0)

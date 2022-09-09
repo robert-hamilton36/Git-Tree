@@ -1,4 +1,4 @@
-export const blobOnlyArrayUnsorted: TreeAPI[] = [
+export const TEST_blobOnlyArrayUnsorted: TreeAPI[] = [
   { "path": "manifest.json", "mode": "100644", "type": "blob", "sha": "de20fc01fb1b9809cffe9a4201e9004b6a6a7219", "size": 285, "url": "https://api.github.com/repos/" },
   { "path": "README.md", "mode": "100644", "type": "blob", "sha": "f131602f97eea846902ca1597149678102cb922e", "size": 1656, "url": "https://api.github.com/repos/" },
   { "path": "LICENSE", "mode": "100644", "type": "blob", "sha": "be600b1147120e185af9d38800c85ab1dcda13eb", "size": 1074, "url": "https://api.github.com/repos/" },
@@ -6,7 +6,7 @@ export const blobOnlyArrayUnsorted: TreeAPI[] = [
   { "path": "background.js", "mode": "100644", "type": "blob", "sha": "14ae41e95296fa529ef22fad3f8b8e0dd2c3727d", "size": 408, "url": "https://api.github.com/repos/" }
 ]
 
-export const treeOnlyArrayUnsorted: TreeAPI[] = [
+export const TEST_treeOnlyArrayUnsorted: TreeAPI[] = [
   { "path": "manifest.json", "mode": "100644", "type": "tree", "sha": "de20fc01fb1b9809cffe9a4201e9004b6a6a7219", "size": 285, "url": "https://api.github.com/repos/" },
   { "path": "README.md", "mode": "100644", "type": "tree", "sha": "f131602f97eea846902ca1597149678102cb922e", "size": 1656, "url": "https://api.github.com/repos/" },
   { "path": "LICENSE", "mode": "100644", "type": "tree", "sha": "be600b1147120e185af9d38800c85ab1dcda13eb", "size": 1074, "url": "https://api.github.com/repos/" },
@@ -14,7 +14,7 @@ export const treeOnlyArrayUnsorted: TreeAPI[] = [
   { "path": "background.js", "mode": "100644", "type": "tree", "sha": "14ae41e95296fa529ef22fad3f8b8e0dd2c3727d", "size": 408, "url": "https://api.github.com/repos/" }
 ]
 
-export const treeAndBlobArrayUnsorted: TreeAPI[] = [
+export const TEST_treeAndBlobArrayUnsorted: TreeAPI[] = [
   { "path": ".gitignore", "mode": "100644", "type": "blob", "sha": "d7c62d58f0debb1c0c6d7fec6fd507b323c1d676", "size": 84, "url": "https://api.github.com/repos/" },
   { "path": "manifest.json", "mode": "100644", "type": "blob", "sha": "bf72ae119c3ebf76f57f473850a45e6ad7d239d0", "size": 398, "url": "https://api.github.com/repos/" },
   { "path": "package-lock.json", "mode": "100644", "type": "blob", "sha": "be32b072250b42bdc4851600ff57640c7d40acfa", "size": 187220, "url": "https://api.github.com/repos/" },
@@ -55,7 +55,7 @@ export const treeAndBlobArrayUnsorted: TreeAPI[] = [
 
 // manually sorted and filtered
 
-export const blobOnlyArraySorted: TreeAPI[] = [
+export const TEST_blobOnlyArraySorted: TreeAPI[] = [
   { "path": "LICENSE", "mode": "100644", "type": "blob", "sha": "be600b1147120e185af9d38800c85ab1dcda13eb", "size": 1074, "url": "https://api.github.com/repos/" },
   { "path": "README.md", "mode": "100644", "type": "blob", "sha": "f131602f97eea846902ca1597149678102cb922e", "size": 1656, "url": "https://api.github.com/repos/" },
   { "path": "background.js", "mode": "100644", "type": "blob", "sha": "14ae41e95296fa529ef22fad3f8b8e0dd2c3727d", "size": 408, "url": "https://api.github.com/repos/" },
@@ -63,7 +63,7 @@ export const blobOnlyArraySorted: TreeAPI[] = [
   { "path": "manifest.json", "mode": "100644", "type": "blob", "sha": "de20fc01fb1b9809cffe9a4201e9004b6a6a7219", "size": 285, "url": "https://api.github.com/repos/" }
 ]
 
-export const treeOnlyArraySorted: TreeAPI[] = [
+export const TEST_treeOnlyArraySorted: TreeAPI[] = [
   { "path": "LICENSE", "mode": "100644", "type": "tree", "sha": "be600b1147120e185af9d38800c85ab1dcda13eb", "size": 1074, "url": "https://api.github.com/repos/" },
   { "path": "README.md", "mode": "100644", "type": "tree", "sha": "f131602f97eea846902ca1597149678102cb922e", "size": 1656, "url": "https://api.github.com/repos/" },
   { "path": "background.js", "mode": "100644", "type": "tree", "sha": "14ae41e95296fa529ef22fad3f8b8e0dd2c3727d", "size": 408, "url": "https://api.github.com/repos/" },
@@ -71,7 +71,7 @@ export const treeOnlyArraySorted: TreeAPI[] = [
   { "path": "manifest.json", "mode": "100644", "type": "tree", "sha": "de20fc01fb1b9809cffe9a4201e9004b6a6a7219", "size": 285, "url": "https://api.github.com/repos/" }
 ]
 
-export const treeAndBlobArraySorted: TreeAPI[] = [
+export const TEST_treeAndBlobArraySorted: TreeAPI[] = [
   { "path": "src", "mode": "040000", "type": "tree", "sha": "b42675ebd8df069faba1a44583b70658dbb667ed", "url": "https://api.github.com/repos/" },
   { "path": "src/contexts", "mode": "040000", "type": "tree", "sha": "bc6b71fc54395f8a6b2554cb66ee44feaa6c03f3", "url": "https://api.github.com/repos/" },
   { "path": "src/hook", "mode": "040000", "type": "tree", "sha": "d2f41e596d579809ccbc8cfea0d4a2bb0b98de03", "url": "https://api.github.com/repos/" },
@@ -110,7 +110,7 @@ export const treeAndBlobArraySorted: TreeAPI[] = [
   { "path": "webpack.config.js", "mode": "100644", "type": "blob", "sha": "0c0bc4017aa299dae72b76b729dac675bb148d4d", "size": 544, "url": "https://api.github.com/repos/" }
 ]
 
-export const filteredByRoot: TreeAPI[] = [
+export const TEST_filteredByRoot: TreeAPI[] = [
   { "path": "src", "mode": "040000", "type": "tree", "sha": "b42675ebd8df069faba1a44583b70658dbb667ed", "url": "https://api.github.com/repos/" },
   { "path": ".gitignore", "mode": "100644", "type": "blob", "sha": "d7c62d58f0debb1c0c6d7fec6fd507b323c1d676", "size": 84, "url": "https://api.github.com/repos/" },
   { "path": "manifest.json", "mode": "100644", "type": "blob", "sha": "bf72ae119c3ebf76f57f473850a45e6ad7d239d0", "size": 398, "url": "https://api.github.com/repos/" },
@@ -121,7 +121,7 @@ export const filteredByRoot: TreeAPI[] = [
   { "path": "webpack.config.js", "mode": "100644", "type": "blob", "sha": "0c0bc4017aa299dae72b76b729dac675bb148d4d", "size": 544, "url": "https://api.github.com/repos/" }
 ]
 
-export const filteredBySrc: TreeAPI[] = [
+export const TEST_filteredBySrc: TreeAPI[] = [
   { "path": "src/contexts", "mode": "040000", "type": "tree", "sha": "bc6b71fc54395f8a6b2554cb66ee44feaa6c03f3", "url": "https://api.github.com/repos/" },
   { "path": "src/hook", "mode": "040000", "type": "tree", "sha": "d2f41e596d579809ccbc8cfea0d4a2bb0b98de03", "url": "https://api.github.com/repos/" },
   { "path": "src/navbar", "mode": "040000", "type": "tree", "sha": "4c47be081456a959b6c5ffe93d1a1693e8405b3d", "url": "https://api.github.com/repos/" },
@@ -134,7 +134,7 @@ export const filteredBySrc: TreeAPI[] = [
 
 ]
 
-export const filteredBySrcNavbar: TreeAPI[] = [
+export const TEST_filteredBySrcNavbar: TreeAPI[] = [
   { "path": "src/navbar/Tree", "mode": "040000", "type": "tree", "sha": "a597acc4db08d9d6c84f183c05c5d10cc86c3955", "url": "https://api.github.com/repos/" },
   { "path": "src/navbar/ClosedNav.tsx", "mode": "100644", "type": "blob", "sha": "96a49a9aab952516b0fa7d9ece491b5948715683", "size": 621, "url": "https://api.github.com/repos/" },
   { "path": "src/navbar/Content.tsx", "mode": "100644", "type": "blob", "sha": "0cc384270b63c6e9f3aa70f4403c4f5a1851a978", "size": 544, "url": "https://api.github.com/repos/" },

@@ -1,4 +1,4 @@
-import { blobOnlyArraySorted, blobOnlyArrayUnsorted, filteredByRoot, filteredBySrc, filteredBySrcNavbar, treeAndBlobArraySorted, treeAndBlobArrayUnsorted, treeOnlyArraySorted, treeOnlyArrayUnsorted } from "../../../testing/testdata/GithubTree";
+import { TEST_blobOnlyArraySorted, TEST_blobOnlyArrayUnsorted, TEST_filteredByRoot, TEST_filteredBySrc, TEST_filteredBySrcNavbar, TEST_treeAndBlobArraySorted, TEST_treeAndBlobArrayUnsorted, TEST_treeOnlyArraySorted, TEST_treeOnlyArrayUnsorted } from "../../../testing/testdata/GithubTree";
 import { filterTree, TestSorter } from "../filterTree";
 
 describe('sorter()', () => {
@@ -9,18 +9,18 @@ describe('sorter()', () => {
   })
 
   test('correctly sorts blob only array', () => {
-    const sorted = blobOnlyArrayUnsorted.sort(TestSorter)
-    expect(sorted).toEqual(blobOnlyArraySorted)
+    const sorted = TEST_blobOnlyArrayUnsorted.sort(TestSorter)
+    expect(sorted).toEqual(TEST_blobOnlyArraySorted)
   })
 
   test('correctly sorts tree only array', () => {
-    const sorted = treeOnlyArrayUnsorted.sort(TestSorter)
-    expect(sorted).toEqual(treeOnlyArraySorted)
+    const sorted = TEST_treeOnlyArrayUnsorted.sort(TestSorter)
+    expect(sorted).toEqual(TEST_treeOnlyArraySorted)
   })
 
   test('correctly sorts mixed array', () => {
-    const sorted = treeAndBlobArrayUnsorted.sort(TestSorter)
-    expect(sorted).toEqual(treeAndBlobArraySorted)
+    const sorted = TEST_treeAndBlobArrayUnsorted.sort(TestSorter)
+    expect(sorted).toEqual(TEST_treeAndBlobArraySorted)
   })
 })
 
@@ -31,22 +31,22 @@ describe('filterTree', () => {
   })
 
   test("filter By Root '.'", () => {
-    const filtered = filterTree(treeAndBlobArrayUnsorted)
-    expect(filtered).toEqual(filteredByRoot)
+    const filtered = filterTree(TEST_treeAndBlobArrayUnsorted)
+    expect(filtered).toEqual(TEST_filteredByRoot)
   })
 
   test("filter By src", () => {
-    const filtered = filterTree(treeAndBlobArrayUnsorted, 'src')
-    expect(filtered).toEqual(filteredBySrc)
+    const filtered = filterTree(TEST_treeAndBlobArrayUnsorted, 'src')
+    expect(filtered).toEqual(TEST_filteredBySrc)
   })
 
   test("filter By src/navbar", () => {
-    const filtered = filterTree(treeAndBlobArrayUnsorted, 'src/navbar')
-    expect(filtered).toEqual(filteredBySrcNavbar)
+    const filtered = filterTree(TEST_treeAndBlobArrayUnsorted, 'src/navbar')
+    expect(filtered).toEqual(TEST_filteredBySrcNavbar)
   })
 
   test("filter By src/tree returns empty array", () => {
-    const filtered = filterTree(treeAndBlobArrayUnsorted, 'src/tree')
+    const filtered = filterTree(TEST_treeAndBlobArrayUnsorted, 'src/tree')
     expect(filtered).toEqual([])
   })
 })

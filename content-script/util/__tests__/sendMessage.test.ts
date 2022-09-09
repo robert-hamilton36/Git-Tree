@@ -1,6 +1,7 @@
 import { sendFetchBranchMessage, sendFetchTreeMessage } from "../sendMessage"
-import { blobOnlyArrayUnsorted } from "../../../testing/testdata/GithubTree"
-import { FetchTreeTestMessage, FetchBranchTestMessage, ReturnErrorTestMessage, ReturnTreeTestMessage, ReturnBranchTestMessage } from "../../../testing/testdata/Messages"
+import { TEST_blobOnlyArrayUnsorted } from "../../../testing/testdata/GithubTree"
+import { TEST_FetchTreeTestMessage, TEST_FetchBranchTestMessage, TEST_ReturnErrorTestMessage, TEST_ReturnTreeTestMessage, TEST_ReturnBranchTestMessage } from "../../../testing/testdata/Messages"
+import { TEST_BRANCH, TEST_REPO, TEST_USER } from "../../../testing/testdata/urls"
 
 const MockedBrowserRuntimeSendMessage = browser.runtime.sendMessage as jest.Mock
 
@@ -10,26 +11,26 @@ describe('sendFetchTreeMessage()', () => {
   })
 
   test('sends and recieves correct data', async () => {
-    MockedBrowserRuntimeSendMessage.mockResolvedValue(ReturnTreeTestMessage)
+    MockedBrowserRuntimeSendMessage.mockResolvedValue(TEST_ReturnTreeTestMessage)
 
-    const data = await sendFetchTreeMessage('robert-hamilton36', 'Git-tree', 'main')
+    const data = await sendFetchTreeMessage(TEST_USER, TEST_REPO, TEST_BRANCH)
 
-    expect(data).toBe(blobOnlyArrayUnsorted)
+    expect(data).toBe(TEST_blobOnlyArrayUnsorted)
     expect( MockedBrowserRuntimeSendMessage).toHaveBeenCalledTimes(1)
-    expect( MockedBrowserRuntimeSendMessage).toHaveBeenCalledWith(FetchTreeTestMessage)
+    expect( MockedBrowserRuntimeSendMessage).toHaveBeenCalledWith(TEST_FetchTreeTestMessage)
 
   })
 
   test('handles sendMessage error', async () => {
-    MockedBrowserRuntimeSendMessage.mockRejectedValue(ReturnErrorTestMessage)
+    MockedBrowserRuntimeSendMessage.mockRejectedValue(TEST_ReturnErrorTestMessage)
 
     try {
-      await sendFetchTreeMessage('robert-hamilton36', 'Git-tree', 'main')
+      await sendFetchTreeMessage(TEST_USER, TEST_REPO, TEST_BRANCH)
     } catch (e) {
       expect(e.type).toBe('error')
       expect(e.error).toBe('something went wrong')
       expect( MockedBrowserRuntimeSendMessage).toHaveBeenCalledTimes(1)
-      expect( MockedBrowserRuntimeSendMessage).toHaveBeenCalledWith(FetchTreeTestMessage)
+      expect( MockedBrowserRuntimeSendMessage).toHaveBeenCalledWith(TEST_FetchTreeTestMessage)
     }
   })
 })
@@ -42,26 +43,26 @@ describe('sendFetchBranchMessage()', () => {
   })
 
   test('sends and recieves correct data', async () => {
-    MockedBrowserRuntimeSendMessage.mockResolvedValue(ReturnBranchTestMessage)
+    MockedBrowserRuntimeSendMessage.mockResolvedValue(TEST_ReturnBranchTestMessage)
 
-    const data = await sendFetchBranchMessage('robert-hamilton36', 'Git-tree')
+    const data = await sendFetchBranchMessage(TEST_USER, TEST_REPO)
 
     expect(data).toBe('main')
     expect( MockedBrowserRuntimeSendMessage).toHaveBeenCalledTimes(1)
-    expect( MockedBrowserRuntimeSendMessage).toHaveBeenCalledWith(FetchBranchTestMessage)
+    expect( MockedBrowserRuntimeSendMessage).toHaveBeenCalledWith(TEST_FetchBranchTestMessage)
 
   })
 
   test('handles sendMessage error', async () => {
-    MockedBrowserRuntimeSendMessage.mockRejectedValue(ReturnErrorTestMessage)
+    MockedBrowserRuntimeSendMessage.mockRejectedValue(TEST_ReturnErrorTestMessage)
 
     try {
-      await sendFetchBranchMessage('robert-hamilton36', 'Git-tree')
+      await sendFetchBranchMessage(TEST_USER, TEST_REPO)
     } catch (e) {
       expect(e.type).toBe('error')
       expect(e.error).toBe('something went wrong')
       expect( MockedBrowserRuntimeSendMessage).toHaveBeenCalledTimes(1)
-      expect( MockedBrowserRuntimeSendMessage).toHaveBeenCalledWith(FetchBranchTestMessage)
+      expect( MockedBrowserRuntimeSendMessage).toHaveBeenCalledWith(TEST_FetchBranchTestMessage)
     }
   })
 })
