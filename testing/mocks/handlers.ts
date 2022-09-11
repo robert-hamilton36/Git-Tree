@@ -1,5 +1,5 @@
 import { rest } from 'msw'
-import { TEST_blobOnlyArraySorted } from '../testdata/GithubTree'
+import { TEST_blobOnlyArrayUnsorted } from '../testdata/GithubTree'
 import { TEST_BRANCH, TEST_FetchBranchAPIUrl, TEST_FetchTreeAPIUrlWithOutQueries } from '../testdata/urls'
 
 export const handlers = [
@@ -7,7 +7,7 @@ export const handlers = [
     return res(
       ctx.status(200),
       ctx.json({
-        tree: TEST_blobOnlyArraySorted
+        tree: TEST_blobOnlyArrayUnsorted
       })
     )
   }),
@@ -19,4 +19,12 @@ export const handlers = [
       })
     )
   }),
+  rest.get('https://api.github.com/fail/fail', (req, res, ctx) => {
+    return res(
+      ctx.status(404),
+      ctx.json({
+        message: 'Not Found'
+      })
+    )
+  })
 ]
