@@ -14,9 +14,24 @@ interface TreeAPI {
   url: string;
 }
 
-interface IMessage {
-  type: 'fetch';
+interface IFetchMessage {
+  type: 'fetchBranch' | 'fetchTree';
   url: string
+}
+
+interface IReturnBranchMessage {
+  type: 'branch';
+  data: string
+}
+
+interface IReturnTreeMessage {
+  type: 'tree';
+  data: TreeAPI[]
+}
+
+interface IErrorMessage {
+  type: 'error';
+  error: string;
 }
 
 interface ReactChildren {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { renderHook, act } from '@testing-library/react'
 import { TreeProvider, useTree } from '../TreeContext'
-import { treeAndBlobArraySorted } from '../../testing/testdata/GithubTree'
+import { TEST_treeAndBlobArraySorted } from '../../../testing/testdata/GithubTree'
 
 describe('<TreeProvider>', () => {
   test('renders provider with initial state []', () => {
@@ -17,8 +17,8 @@ describe('<TreeProvider>', () => {
 
     expect(result.current.tree).toEqual([])
 
-    act(() => result.current.setTree(treeAndBlobArraySorted))
+    act(() => result.current.setTree(TEST_treeAndBlobArraySorted))
 
-    expect(result.current.tree).toEqual(treeAndBlobArraySorted)
+    expect(result.current.tree).toEqual(TEST_treeAndBlobArraySorted)
   })
 })

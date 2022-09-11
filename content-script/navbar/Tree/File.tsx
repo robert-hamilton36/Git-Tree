@@ -1,6 +1,7 @@
 import path from 'path-browserify'
 
 import React from 'react'
+import { useGitRepo } from '../../contexts/GitRepoContexts'
 
 import { FileSVG } from '../../svgs/FileSVG'
 
@@ -9,10 +10,7 @@ interface Props {
 }
 
 export const File: React.FC<Props> = ({item}) => {
-
-  const user = 'robert-hamilton36'
-  const repo = 'ElectronOAuth'
-  const branch = 'main'
+  const { user, repo, branch } = useGitRepo()
 
   const urlString = `https://github.com/${user}/${repo}/blob/${branch}/${item.path}` 
   

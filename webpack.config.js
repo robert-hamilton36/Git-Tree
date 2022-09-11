@@ -3,10 +3,10 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  devtool: "source-map",
+  devtool: "inline-source-map",
   entry: {
-    ['content-script'] :'./src/content-script.tsx',
-    background: './src/background.ts'
+    ['content-script'] :'./content-script/content-script.tsx',
+    background: './background/background.ts'
   },
   module: {
     rules: [
