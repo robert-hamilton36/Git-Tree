@@ -66,11 +66,13 @@ export const ResizeBorder: React.FC<Props> = ({children, showNav, setShowNav}) =
   }
 
   return (
-    <div className='GitTree-ResizeBorder'
-      onMouseDown={handleMouseDownClick}
-    >
+    <>
       {children}
-    </div>
+      <div className='GitTree-ResizeBorder'
+        onMouseDown={handleMouseDownClick}
+        >
+      </div>
+    </>
   )
 }
 

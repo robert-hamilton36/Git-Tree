@@ -10,13 +10,12 @@ export const NavBar = () => {
   const { loading, error } = useFetchRepoDetails(window.location.href)
 
   return (
-    <>
+    <ResizeBorder showNav={showNav} setShowNav={setShowNav}>
       { 
         showNav 
         ? <OpenNav setShowNav={setShowNav} loading={loading} error={error}/> 
         : <ClosedNav setShowNav={setShowNav} />
       }
-      <ResizeBorder showNav={showNav} setShowNav={setShowNav} />
-    </>
+    </ResizeBorder>
   )
 }
