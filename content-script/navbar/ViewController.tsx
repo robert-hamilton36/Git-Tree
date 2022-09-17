@@ -2,12 +2,10 @@ import React from 'react'
 import { Tree } from './Tree/Tree';
 
 import { filterTree } from '../util/filterTree';
-import { useFetchRepoDetails } from '../hook/useFetchRepoDetails';
 import { useTree } from '../contexts/TreeContext';
 
-export const ViewController = () => {
+export const ViewController: React.FC<Props> = ({loading, error}) => {
   const { tree } = useTree()
-  const { loading, error } = useFetchRepoDetails(window.location.href)
 
   if(loading) {
     return (
@@ -31,4 +29,9 @@ export const ViewController = () => {
       <Tree treeData={filterTree(tree)} />
     </main>
   )
+}
+
+interface Props {
+  loading: boolean;
+  error: string;
 }
