@@ -37,3 +37,5 @@ interface IErrorMessage {
 interface ReactChildren {
   children: React.ReactNode
 } 
+
+type PageView = 'tree'
