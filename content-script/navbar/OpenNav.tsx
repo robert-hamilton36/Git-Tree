@@ -1,9 +1,8 @@
 import React from 'react'
 import { useNavWidth } from '../contexts/NavWidthContext'
-import { ViewController } from './ViewController'
 import { Header } from './Header'
 
-export const OpenNav: React.FC<Props> = ({setShowNav, error, loading}) => {
+export const OpenNav: React.FC<Props> = ({setShowNav, content}) => {
   const { navWidth } = useNavWidth()
   return (
     <div
@@ -11,13 +10,12 @@ export const OpenNav: React.FC<Props> = ({setShowNav, error, loading}) => {
       className='--color-page-header-bg GitTree-openNavigator'
     >
       <Header setShowNav={setShowNav} />
-      <ViewController loading={loading} error={error}/>
+      {content}
     </div>
   )
 }
 
 interface Props {
   setShowNav: React.Dispatch<React.SetStateAction<boolean>>;
-  loading: boolean;
-  error: string;
+  content: React.ReactNode;
 }
