@@ -1,12 +1,12 @@
 import { fetchBranch, fetchTree } from "../fetch"
 
 import { TEST_FetchBranchAPIUrl, TEST_FetchTreeAPIUrl } from "../../testing/testdata/urls"
-import { TEST_blobOnlyArraySorted } from "../../testing/testdata/GithubTree"
+import { TEST_blobOnlyArrayUnsorted } from "../../testing/testdata/GithubTree"
 
 describe('fetchTree', () => {
   test('returns default Tree', async () => {
     const Tree = await fetchTree(TEST_FetchTreeAPIUrl)
-    expect(Tree).toEqual(TEST_blobOnlyArraySorted)
+    expect(Tree).toEqual(TEST_blobOnlyArrayUnsorted)
   })
 
   test('returns error', async () => {
