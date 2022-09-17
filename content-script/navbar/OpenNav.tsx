@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavWidth } from '../contexts/NavWidthContext'
-import { Content } from './Content'
+import { ViewController } from './ViewController'
 import { Header } from './Header'
 
 export const OpenNav: React.FC<Props> = ({setShowNav}) => {
@@ -11,7 +11,7 @@ export const OpenNav: React.FC<Props> = ({setShowNav}) => {
       className='--color-page-header-bg GitTree-openNavigator'
     >
       <Header setShowNav={setShowNav} />
-      <Content />
+      <ViewController />
     </div>
   )
 }

@@ -5,7 +5,7 @@ import { filterTree } from '../util/filterTree';
 import { useFetchRepoDetails } from '../hook/useFetchRepoDetails';
 import { useTree } from '../contexts/TreeContext';
 
-export const Content = () => {
+export const ViewController = () => {
   const { tree } = useTree()
   const { loading, error } = useFetchRepoDetails(window.location.href)
 
