@@ -38,4 +38,4 @@ interface ReactChildren {
   children: React.ReactNode
 } 
 
-type PageView = 'tree'
+type PageView = 'tree' | 'user'

@@ -4,10 +4,10 @@ import { Tree } from './Tree/Tree';
 import { filterTree } from '../util/filterTree';
 import { useTree } from '../contexts/TreeContext';
 
-export const ViewController: React.FC<Props> = ({loading, error}) => {
+export const ViewController: React.FC<Props> = ({loading, error, view}) => {
   const { tree } = useTree()
 
-  if(loading) {
+  if (loading) {
     return (
       <main className='GitTree-treeContainer'>
         <h1>Loading ...</h1>
@@ -15,7 +15,7 @@ export const ViewController: React.FC<Props> = ({loading, error}) => {
     )
   }
 
-  if(error) {
+  if (error) {
     return (
       <main className='GitTree-treeContainer'>
         <h1>Error</h1>
@@ -24,14 +24,19 @@ export const ViewController: React.FC<Props> = ({loading, error}) => {
     )
   }
 
-  return (
-    <main className='GitTree-treeContainer'>
-      <Tree treeData={filterTree(tree)} />
-    </main>
-  )
+  if (view === 'tree') {
+    return (
+      <main className='GitTree-treeContainer'>
+        <Tree treeData={filterTree(tree)} />
+      </main>
+    )
+  }
+
+  return null
 }
 
 interface Props {
   loading: boolean;
   error: string;
+  view: PageView
 }

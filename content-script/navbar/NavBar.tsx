@@ -8,6 +8,7 @@ import { ViewController } from './ViewController'
 
 export const NavBar = () => {
   const [showNav, setShowNav] = useState(true)
+  const [view, setView] = useState<PageView>('tree')
   const { loading, error } = useFetchRepoDetails(window.location.href)
 
   return (
@@ -17,10 +18,10 @@ export const NavBar = () => {
         ? <OpenNav 
             setShowNav={setShowNav} 
             content={
-              <ViewController loading={loading} error={error}/>
+              <ViewController loading={loading} error={error} view={view}/>
             }
           /> 
-        : <ClosedNav setShowNav={setShowNav} />
+        : <ClosedNav setShowNav={setShowNav} setView={setView}/>
       }
     </ResizeBorder>
   )
