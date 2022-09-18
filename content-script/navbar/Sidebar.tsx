@@ -6,7 +6,7 @@ import { UserSVG } from '../svgs/UserSVG'
   css classes --color-page-header-bg && btn-link color-fg-muted supplied by github
 */
 
-export const ClosedNav: React.FC<Props> = ({setShowNav, setView}) => {
+export const Sidebar: React.FC<Props> = ({setShowNav, setView}) => {
 
   const handleClick = (view: PageView) => {
     setShowNav(state => !state)

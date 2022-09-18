@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useFetchRepoDetails } from '../hook/useFetchRepoDetails'
 
-import { ClosedNav } from './ClosedNav'
+import { Sidebar } from './Sidebar'
 import { OpenNav } from './OpenNav'
 import { ResizeBorder } from './ResizeBorder'
 import { ViewController } from './ViewController'
@@ -13,7 +13,7 @@ export const NavBar = () => {
 
   return (
     <ResizeBorder showNav={showNav} setShowNav={setShowNav}>
-      <ClosedNav setShowNav={setShowNav} setView={setView}/>
+      <Sidebar setShowNav={setShowNav} setView={setView}/>
       { 
         showNav 
         && 
