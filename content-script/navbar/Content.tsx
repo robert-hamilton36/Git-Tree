@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavWidth } from '../contexts/NavWidthContext'
 import { Header } from './Header'
 
-export const OpenNav: React.FC<Props> = ({content}) => {
+export const Content: React.FC<Props> = ({content}) => {
   const { navWidth } = useNavWidth()
   return (
     <div

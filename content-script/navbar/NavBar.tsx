@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useFetchRepoDetails } from '../hook/useFetchRepoDetails'
 
 import { Sidebar } from './Sidebar'
-import { OpenNav } from './OpenNav'
+import { Content } from './Content'
 import { ResizeBorder } from './ResizeBorder'
 import { ViewController } from './ViewController'
 
@@ -17,7 +17,7 @@ export const NavBar = () => {
       { 
         showNav 
         && 
-        <OpenNav 
+        <Content 
           content={
             <ViewController loading={loading} error={error} view={view}/>
           }
