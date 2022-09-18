@@ -13,15 +13,15 @@ export const NavBar = () => {
 
   return (
     <ResizeBorder showNav={showNav} setShowNav={setShowNav}>
+      <ClosedNav setShowNav={setShowNav} setView={setView}/>
       { 
         showNav 
-        ? <OpenNav 
-            setShowNav={setShowNav} 
-            content={
-              <ViewController loading={loading} error={error} view={view}/>
-            }
-          /> 
-        : <ClosedNav setShowNav={setShowNav} setView={setView}/>
+        && 
+        <OpenNav 
+          content={
+            <ViewController loading={loading} error={error} view={view}/>
+          }
+        /> 
       }
     </ResizeBorder>
   )
