@@ -6,12 +6,7 @@ import { UserSVG } from '../svgs/UserSVG'
   css classes --color-page-header-bg && btn-link color-fg-muted supplied by github
 */
 
-export const Sidebar: React.FC<Props> = ({setShowNav, setView}) => {
-
-  const handleClick = (view: PageView) => {
-    setShowNav(state => !state)
-    setView(view)
-  }
+export const Sidebar: React.FC<Props> = ({handleClick}) => {
   return (
     <div
       className='--color-page-header-bg GitTree-closedNavigator'
@@ -37,6 +32,5 @@ export const Sidebar: React.FC<Props> = ({setShowNav, setView}) => {
 }
 
 interface Props {
-  setShowNav: React.Dispatch<React.SetStateAction<boolean>>;
-  setView: React.Dispatch<React.SetStateAction<PageView>>;
+  handleClick: (newView: PageView) => void;
 }
