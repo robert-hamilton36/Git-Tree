@@ -14,19 +14,28 @@ interface TreeAPI {
   url: string;
 }
 
+interface ILoginMessage {
+  type: 'login'
+}
+
 interface IFetchMessage {
   type: 'fetchBranch' | 'fetchTree';
-  url: string
+  url: string;
+}
+
+interface IReturnUserMessage {
+  type: 'user';
+  data: unknown;
 }
 
 interface IReturnBranchMessage {
   type: 'branch';
-  data: string
+  data: string;
 }
 
 interface IReturnTreeMessage {
   type: 'tree';
-  data: TreeAPI[]
+  data: TreeAPI[];
 }
 
 interface IErrorMessage {
@@ -35,7 +44,7 @@ interface IErrorMessage {
 }
 
 interface ReactChildren {
-  children: React.ReactNode
+  children: React.ReactNode;
 } 
 
 type PageView = 'tree' | 'user'
