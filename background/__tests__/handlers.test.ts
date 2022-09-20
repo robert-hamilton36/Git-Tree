@@ -1,7 +1,7 @@
 import { TEST_blobOnlyArrayUnsorted } from "../../testing/testdata/GithubTree"
 import { TEST_ReturnBranchTestMessage, TEST_ReturnErrorTestMessage, TEST_ReturnTreeTestMessage } from "../../testing/testdata/Messages"
 import { TEST_BRANCH, TEST_FetchBranchAPIUrl, TEST_FetchTreeAPIUrl } from "../../testing/testdata/urls"
-import { fetchBranch, fetchTree } from "../fetch"
+import { fetchBranch, fetchTree } from "../api"
 import { handleFetchBranch, handleFetchTree } from "../handlers"
 
 jest.mock('../fetch')

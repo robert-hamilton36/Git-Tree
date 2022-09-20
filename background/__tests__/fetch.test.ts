@@ -1,4 +1,4 @@
-import { fetchBranch, fetchTree } from "../fetch"
+import { fetchBranch, fetchTree } from "../api"
 
 import { TEST_FetchBranchAPIUrl, TEST_FetchTreeAPIUrl } from "../../testing/testdata/urls"
 import { TEST_blobOnlyArrayUnsorted } from "../../testing/testdata/GithubTree"

@@ -1,4 +1,4 @@
-import { fetchBranch, fetchTree } from "./fetch"
+import { fetchBranch, fetchTree } from "./api"
 
 // fetchs data and sends return message
 
