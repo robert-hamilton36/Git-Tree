@@ -4,7 +4,7 @@ import { TEST_BRANCH, TEST_FetchBranchAPIUrl, TEST_FetchTreeAPIUrl } from "../..
 import { fetchBranch, fetchTree } from "../api"
 import { handleFetchBranch, handleFetchTree } from "../handlers"
 
-jest.mock('../fetch')
+jest.mock('../api')
 
 const MockFetchBranch = fetchBranch as jest.Mock
 const MockFetchTree = fetchTree as jest.Mock
