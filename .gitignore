@@ -3,3 +3,5 @@ content-script.js
 content-script.js.map
 background.js
 background.js.map
+
+env.ts
