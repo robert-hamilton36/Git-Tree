@@ -14,6 +14,11 @@ interface TreeAPI {
   url: string;
 }
 
+interface UserData {
+  login: string;
+  avatar_url: string;
+}
+
 interface ILoginMessage {
   type: 'login'
 }
