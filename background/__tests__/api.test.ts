@@ -1,4 +1,4 @@
-import { fetchBranch, fetchTree, fetchUser, requestCode, requestOAuthToken, TESTING_GetAuthToken, TESTING_SetAuthToken } from "../api"
+import { fetchBranch, fetchTree, fetchUser, removeOAuthToken, requestCode, requestOAuthToken, TESTING_GetAuthToken, TESTING_SetAuthToken } from "../api"
 
 import { v4 as uuidv4 } from 'uuid'
 import { parseCodeAndStateFromURL } from "../util/parseUrl"
@@ -200,5 +200,18 @@ describe('requestOAuthToken', () => {
       token = TESTING_GetAuthToken()
       expect(token).toBeUndefined()
     }
+  })
+})
+
+describe('removeOAuthToken', () => {
+  it("sets the auth token to '' an empty string", () => {
+    TESTING_SetAuthToken(TEST_OAuthToken)
+    const token = TESTING_GetAuthToken()
+    expect(token).toBe(TEST_OAuthToken)
+
+    removeOAuthToken()
+
+    const newToken = TESTING_GetAuthToken()
+    expect(newToken).toBe('')
   })
 })

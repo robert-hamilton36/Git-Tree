@@ -23,6 +23,10 @@ interface ILoginMessage {
   type: 'login'
 }
 
+interface ILogoutMessage {
+  type: 'logout'
+}
+
 interface IFetchMessage {
   type: 'fetchBranch' | 'fetchTree';
   url: string;
@@ -30,7 +34,7 @@ interface IFetchMessage {
 
 interface IReturnUserMessage {
   type: 'user';
-  data: unknown;
+  data: UserData;
 }
 
 interface IReturnBranchMessage {

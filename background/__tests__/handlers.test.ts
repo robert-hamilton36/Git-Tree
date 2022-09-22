@@ -1,6 +1,6 @@
-import { handleFetchBranch, handleFetchTree, handleLogin } from "../handlers"
+import { handleFetchBranch, handleFetchTree, handleLogin, handleLogout } from "../handlers"
 
-import { fetchBranch, fetchTree, fetchUser, requestCode, requestOAuthToken } from "../api"
+import { fetchBranch, fetchTree, fetchUser, removeOAuthToken, requestCode, requestOAuthToken } from "../api"
 
 import { TEST_blobOnlyArrayUnsorted } from "../../testing/testdata/GithubTree"
 import { TEST_ReturnBranchTestMessage, TEST_ReturnErrorTestMessage, TEST_ReturnTreeTestMessage, TEST_ReturnUserMessage } from "../../testing/testdata/Messages"
@@ -14,6 +14,7 @@ const MockFetchTree = fetchTree as jest.Mock
 const MockFetchUser = fetchUser as jest.Mock
 const MockRequestCode = requestCode as jest.Mock
 const MockRequestOAuthToken = requestOAuthToken as jest.Mock
+const MockRemoveOAuthToken = removeOAuthToken as jest.Mock
 
 describe('handleFetchBranch()', () => {
   test('it returns a branch message', async () => {
@@ -89,5 +90,13 @@ describe('handleLogin()', () => {
     MockRequestCode.mockRejectedValue('oh no')
     const message = await handleLogin()
     expect(message).toEqual(TEST_ReturnErrorTestMessage)
+  })
+})
+
+describe('handleLogout()', () => {
+  test('it calls the correct function', () => {
+    expect(MockRemoveOAuthToken).toHaveBeenCalledTimes(0)
+    handleLogout()
+    expect(MockRemoveOAuthToken).toHaveBeenCalledTimes(1)
   })
 })

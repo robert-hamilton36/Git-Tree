@@ -93,6 +93,10 @@ export const requestOAuthToken = async (code: string) => {
   return 
 }
 
+export const removeOAuthToken = () => {
+  authToken = ''
+}
+
 // functions for testing only
 // to check and set the auth token
 export const TESTING_SetAuthToken = (token: string) => {

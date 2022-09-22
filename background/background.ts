@@ -2,7 +2,7 @@
 // This to circumnavigate cors issues when injects fetch requests into a page
 // Listens for messages from content-script
 
-import { handleFetchBranch, handleFetchTree, handleLogin } from "./handlers"
+import { handleFetchBranch, handleFetchTree, handleLogin, handleLogout } from "./handlers"
 
 const messageListener = async (message: IFetchMessage | ILoginMessage) => {
   if (message.type === 'fetchBranch') {
@@ -13,6 +13,9 @@ const messageListener = async (message: IFetchMessage | ILoginMessage) => {
   }
   if (message.type === 'login') {
     return handleLogin()
+  }
+  if (message.type === 'logout') {
+    return handleLogout()
   }
 }
 
