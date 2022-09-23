@@ -1,7 +1,8 @@
-import { sendFetchBranchMessage, sendFetchTreeMessage } from "../sendMessage"
+import { sendFetchBranchMessage, sendFetchTreeMessage, sendLoginMessage, sendLogoutMessage } from "../sendMessage"
 import { TEST_blobOnlyArrayUnsorted } from "../../../testing/testdata/GithubTree"
-import { TEST_FetchTreeTestMessage, TEST_FetchBranchTestMessage, TEST_ReturnErrorTestMessage, TEST_ReturnTreeTestMessage, TEST_ReturnBranchTestMessage } from "../../../testing/testdata/Messages"
+import { TEST_FetchTreeTestMessage, TEST_FetchBranchTestMessage, TEST_ReturnErrorTestMessage, TEST_ReturnTreeTestMessage, TEST_ReturnBranchTestMessage, TEST_ReturnUserMessage, TEST_LoginTestMessage, TEST_LogoutTestMessage } from "../../../testing/testdata/Messages"
 import { TEST_BRANCH, TEST_REPO, TEST_USER } from "../../../testing/testdata/urls"
+import { TEST_CleanedUserData } from "../../../testing/testdata/GithubUser"
 
 const MockedBrowserRuntimeSendMessage = browser.runtime.sendMessage as jest.Mock
 
@@ -26,6 +27,8 @@ describe('sendFetchTreeMessage()', () => {
 
     try {
       await sendFetchTreeMessage(TEST_USER, TEST_REPO, TEST_BRANCH)
+      // code should never make it here, incase it does force test to fail      
+      expect(true).toBeFalsy()
     } catch (e) {
       expect(e.type).toBe('error')
       expect(e.error).toBe('something went wrong')
@@ -34,8 +37,6 @@ describe('sendFetchTreeMessage()', () => {
     }
   })
 })
-
-
 
 describe('sendFetchBranchMessage()', () => {
   beforeEach(() => {
@@ -58,11 +59,61 @@ describe('sendFetchBranchMessage()', () => {
 
     try {
       await sendFetchBranchMessage(TEST_USER, TEST_REPO)
+      // code should never make it here, incase it does force test to fail      
+      expect(true).toBeFalsy()
     } catch (e) {
       expect(e.type).toBe('error')
       expect(e.error).toBe('something went wrong')
       expect( MockedBrowserRuntimeSendMessage).toHaveBeenCalledTimes(1)
       expect( MockedBrowserRuntimeSendMessage).toHaveBeenCalledWith(TEST_FetchBranchTestMessage)
     }
+  })
+})
+
+describe('sendLoginMessage()', () => {
+  beforeEach(() => {
+    jest.clearAllMocks()
+  })
+
+  test('sends and recieves correct data', async () => {
+    MockedBrowserRuntimeSendMessage.mockResolvedValue(TEST_ReturnUserMessage)
+
+    const data = await sendLoginMessage()
+
+    expect(data).toEqual(TEST_CleanedUserData)
+
+    expect( MockedBrowserRuntimeSendMessage).toHaveBeenCalledTimes(1)
+    expect( MockedBrowserRuntimeSendMessage).toHaveBeenCalledWith(TEST_LoginTestMessage)
+  })
+
+  test('handles sendMessage error', async () => {
+    MockedBrowserRuntimeSendMessage.mockRejectedValue(TEST_ReturnErrorTestMessage)
+
+    try {
+      await sendLoginMessage()
+
+      // code should never make it here, incase it does force test to fail      
+      expect(true).toBeFalsy()
+    } catch(e) {
+      expect(e.type).toBe('error')
+      expect(e.error).toBe('something went wrong')
+      expect( MockedBrowserRuntimeSendMessage).toHaveBeenCalledTimes(1)
+      expect( MockedBrowserRuntimeSendMessage).toHaveBeenCalledWith(TEST_LoginTestMessage)
+    }
+  })
+})
+
+describe('sendLogoutMessage', () => {
+  beforeEach(() => {
+    jest.clearAllMocks()
+  })
+  test('it calls the right functions', async () => {
+    MockedBrowserRuntimeSendMessage.mockResolvedValue(undefined)
+
+    const response = await sendLogoutMessage()
+
+    expect(response).toBeUndefined()
+    expect(MockedBrowserRuntimeSendMessage).toHaveBeenCalledTimes(1)
+    expect(MockedBrowserRuntimeSendMessage).toHaveBeenCalledWith(TEST_LogoutTestMessage)
   })
 })

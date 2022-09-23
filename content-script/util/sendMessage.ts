@@ -25,3 +25,26 @@ export const sendFetchBranchMessage = async (user: string, repo: string) => {
   }
   return response.data
 }
+
+export const sendLoginMessage = async () => {
+  const message: ILoginMessage = {
+    type: 'login'
+  }
+
+  const response = await browser.runtime.sendMessage(message) as IReturnUserMessage | IErrorMessage
+
+  if (response.type === 'error') {
+    throw response.error
+  }
+  return response.data
+}
+
+export const sendLogoutMessage = async () => {
+  const message: ILogoutMessage = {
+    type: 'logout'
+  }
+
+  await browser.runtime.sendMessage(message)
+
+  return
+}
