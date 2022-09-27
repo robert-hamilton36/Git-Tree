@@ -19,6 +19,13 @@ interface UserData {
   avatar_url: string;
 }
 
+type Messages = IFetchMessage | ILoginMessage | ILogoutMessage | ICheckUserMessage
+
+interface IFetchMessage {
+  type: 'fetchBranch' | 'fetchTree';
+  url: string;
+}
+
 interface ILoginMessage {
   type: 'login'
 }
@@ -27,9 +34,8 @@ interface ILogoutMessage {
   type: 'logout'
 }
 
-interface IFetchMessage {
-  type: 'fetchBranch' | 'fetchTree';
-  url: string;
+interface ICheckUserMessage {
+  type: 'userStatus'
 }
 
 interface IReturnUserMessage {
