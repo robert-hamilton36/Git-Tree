@@ -2,8 +2,8 @@ export const parseUrl = (url: string) => {
   // this mess of a regex searches for '://' or '/'
   const regex = /:\/\/|\//
 
-  // splits url i.e https://github.com/robert-hamilton36/GitTree/tree/main
-  // into ['https', 'github.com', 'robert-hamilton36', 'GitTree', 'tree', 'main']
+  // splits url i.e https://github.com/username123/GitTree/tree/main
+  // into ['https', 'github.com', 'username123', 'GitTree', 'tree', 'main']
   //      [ scheme, domain      , user               , repo     , action, branch]
   const urlArray = url.split(regex)
 

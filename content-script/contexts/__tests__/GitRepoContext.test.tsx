@@ -20,11 +20,11 @@ describe('<GitRepoProvider>', () => {
     expect(result.current.repo).toBe('')
     expect(result.current.branch).toBe('')
 
-    act(() => result.current.setUser('robert-hamilton36'))
+    act(() => result.current.setUser('username123'))
     act(() => result.current.setRepo('GitTree'))
     act(() => result.current.setBranch('main'))
 
-    expect(result.current.user).toBe('robert-hamilton36')
+    expect(result.current.user).toBe('username123')
     expect(result.current.repo).toBe('GitTree')
     expect(result.current.branch).toBe('main')
   })

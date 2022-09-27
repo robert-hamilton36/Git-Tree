@@ -61,13 +61,13 @@ describe('useFetchRepoDetails()', () => {
       })
   
       MockSendFetchTreeMessage.mockReturnValue(fakePromise)
-      const { result } = renderHook(() => useFetchRepoDetails('https://github.com/robert-hamilton36/GitTree/tree/main'))
+      const { result } = renderHook(() => useFetchRepoDetails('https://github.com/username123/GitTree/tree/main'))
   
       expect(result.current.loading).toBeTruthy()
       expect(result.current.error).toBeNull()
   
       expect(MockSetUser).toHaveBeenCalledTimes(1)
-      expect(MockSetUser).toHaveBeenCalledWith('robert-hamilton36')
+      expect(MockSetUser).toHaveBeenCalledWith('username123')
   
       expect(MockSetRepo).toHaveBeenCalledTimes(1)
       expect(MockSetRepo).toHaveBeenCalledWith('GitTree')
@@ -83,7 +83,7 @@ describe('useFetchRepoDetails()', () => {
         await fetchTreeController.resolve(TEST_blobOnlyArraySorted)
       })
   
-      expect(MockSendFetchTreeMessage).toHaveBeenCalledWith('robert-hamilton36', 'GitTree', 'main')
+      expect(MockSendFetchTreeMessage).toHaveBeenCalledWith('username123', 'GitTree', 'main')
       expect(MockSetTree).toHaveBeenCalledTimes(1)
       expect(MockSetTree).toHaveBeenCalledWith(TEST_blobOnlyArraySorted)
   
@@ -103,13 +103,13 @@ describe('useFetchRepoDetails()', () => {
       })
   
       MockSendFetchTreeMessage.mockReturnValue(fakePromise)
-      const { result } = renderHook(() => useFetchRepoDetails('https://github.com/robert-hamilton36/GitTree/tree/main'))
+      const { result } = renderHook(() => useFetchRepoDetails('https://github.com/username123/GitTree/tree/main'))
   
       expect(result.current.loading).toBeTruthy()
       expect(result.current.error).toBeNull()
   
       expect(MockSetUser).toHaveBeenCalledTimes(1)
-      expect(MockSetUser).toHaveBeenCalledWith('robert-hamilton36')
+      expect(MockSetUser).toHaveBeenCalledWith('username123')
   
       expect(MockSetRepo).toHaveBeenCalledTimes(1)
       expect(MockSetRepo).toHaveBeenCalledWith('GitTree')
@@ -125,7 +125,7 @@ describe('useFetchRepoDetails()', () => {
         await fetchTreeController.reject('Error: fetch error')
       })
   
-      expect(MockSendFetchTreeMessage).toHaveBeenCalledWith('robert-hamilton36', 'GitTree', 'main')
+      expect(MockSendFetchTreeMessage).toHaveBeenCalledWith('username123', 'GitTree', 'main')
       expect(MockSetTree).toHaveBeenCalledTimes(0)
   
       expect(result.current.loading).toBeFalsy()
@@ -136,7 +136,7 @@ describe('useFetchRepoDetails()', () => {
   describe('url without a branch', () => {
     beforeAll(() => {
       MockParseUrl.mockReturnValue({
-        user: 'robert-hamilton36', 
+        user: 'username123', 
         repo: 'GitTree', 
         branch: '' 
       })
@@ -165,13 +165,13 @@ describe('useFetchRepoDetails()', () => {
 
       MockSendFetchBranchMessage.mockReturnValue(fakeBranchPromise)
       MockSendFetchTreeMessage.mockReturnValue(fakeTreePromise)
-      const { result } = renderHook(() => useFetchRepoDetails('https://github.com/robert-hamilton36/GitTree'))
+      const { result } = renderHook(() => useFetchRepoDetails('https://github.com/username123/GitTree'))
 
       expect(result.current.loading).toBeTruthy()
       expect(result.current.error).toBeNull()
 
       expect(MockSetUser).toHaveBeenCalledTimes(1)
-      expect(MockSetUser).toHaveBeenCalledWith('robert-hamilton36')
+      expect(MockSetUser).toHaveBeenCalledWith('username123')
 
       expect(MockSetRepo).toHaveBeenCalledTimes(1)
       expect(MockSetRepo).toHaveBeenCalledWith('GitTree')
@@ -192,7 +192,7 @@ describe('useFetchRepoDetails()', () => {
         await fetchTreeController.resolve(TEST_blobOnlyArraySorted)
       })
       expect(MockSendFetchTreeMessage).toHaveBeenCalledTimes(1)
-      expect(MockSendFetchTreeMessage).toHaveBeenCalledWith('robert-hamilton36', 'GitTree', 'main')
+      expect(MockSendFetchTreeMessage).toHaveBeenCalledWith('username123', 'GitTree', 'main')
 
       expect(MockSetTree).toHaveBeenCalledTimes(1)
       expect(MockSetTree).toHaveBeenCalledWith(TEST_blobOnlyArraySorted)
@@ -224,13 +224,13 @@ describe('useFetchRepoDetails()', () => {
 
       MockSendFetchBranchMessage.mockReturnValue(fakeBranchPromise)
       MockSendFetchTreeMessage.mockReturnValue(fakeTreePromise)
-      const { result } = renderHook(() => useFetchRepoDetails('https://github.com/robert-hamilton36/GitTree'))
+      const { result } = renderHook(() => useFetchRepoDetails('https://github.com/username123/GitTree'))
 
       expect(result.current.loading).toBeTruthy()
       expect(result.current.error).toBeNull()
 
       expect(MockSetUser).toHaveBeenCalledTimes(1)
-      expect(MockSetUser).toHaveBeenCalledWith('robert-hamilton36')
+      expect(MockSetUser).toHaveBeenCalledWith('username123')
 
       expect(MockSetRepo).toHaveBeenCalledTimes(1)
       expect(MockSetRepo).toHaveBeenCalledWith('GitTree')
@@ -280,13 +280,13 @@ describe('useFetchRepoDetails()', () => {
 
       MockSendFetchBranchMessage.mockReturnValue(fakeBranchPromise)
       MockSendFetchTreeMessage.mockReturnValue(fakeTreePromise)
-      const { result } = renderHook(() => useFetchRepoDetails('https://github.com/robert-hamilton36/GitTree'))
+      const { result } = renderHook(() => useFetchRepoDetails('https://github.com/username123/GitTree'))
 
       expect(result.current.loading).toBeTruthy()
       expect(result.current.error).toBeNull()
 
       expect(MockSetUser).toHaveBeenCalledTimes(1)
-      expect(MockSetUser).toHaveBeenCalledWith('robert-hamilton36')
+      expect(MockSetUser).toHaveBeenCalledWith('username123')
 
       expect(MockSetRepo).toHaveBeenCalledTimes(1)
       expect(MockSetRepo).toHaveBeenCalledWith('GitTree')
