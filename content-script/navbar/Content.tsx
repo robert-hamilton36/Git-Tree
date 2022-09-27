@@ -10,7 +10,9 @@ export const Content: React.FC<Props> = ({content}) => {
       className='--color-page-header-bg GitTree-openNavigator'
     >
       <Header />
-      {content}
+      <main className='GitTree-treeContainer'>
+        {content}
+      </main>
     </div>
   )
 }

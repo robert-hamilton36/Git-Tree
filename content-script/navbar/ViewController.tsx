@@ -7,28 +7,24 @@ import { useTree } from '../contexts/TreeContext';
 export const ViewController: React.FC<Props> = ({loading, error, view}) => {
   const { tree } = useTree()
 
-  if (loading) {
-    return (
-      <main className='GitTree-treeContainer'>
-        <h1>Loading ...</h1>
-      </main>
-    )
-  }
-
-  if (error) {
-    return (
-      <main className='GitTree-treeContainer'>
-        <h1>Error</h1>
-        <p>{error}</p>
-      </main>
-    )
-  }
-
+  
   if (view === 'tree') {
+    if (loading) {
+      return (
+        <h1>Loading ...</h1>
+      )
+    }
+  
+    if (error) {
+      return (
+        <>
+          <h1>Error</h1>
+          <p>{error}</p>
+        </>
+      )
+    }
     return (
-      <main className='GitTree-treeContainer'>
-        <Tree treeData={filterTree(tree)} />
-      </main>
+      <Tree treeData={filterTree(tree)} />
     )
   }
 
