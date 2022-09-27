@@ -3,6 +3,7 @@ import { Tree } from './Tree/Tree';
 
 import { filterTree } from '../util/filterTree';
 import { useTree } from '../contexts/TreeContext';
+import { Login } from './User/Login';
 
 export const ViewController: React.FC<Props> = ({loading, error, view}) => {
   const { tree } = useTree()
@@ -25,6 +26,12 @@ export const ViewController: React.FC<Props> = ({loading, error, view}) => {
     }
     return (
       <Tree treeData={filterTree(tree)} />
+    )
+  }
+
+  if (view ==='user') {
+    return (
+      <Login />
     )
   }
 
