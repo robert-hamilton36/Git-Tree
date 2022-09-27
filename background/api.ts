@@ -10,7 +10,8 @@ let authToken: string
 // returns tree data
 
 export const fetchTree = async (url: string) => {
-  const response = await fetch(url, { headers: { "Authorization" : `Bearer ${authToken}`} } )
+  const options = authToken && { headers: { "Authorization" : `Bearer ${authToken}`} }
+  const response = await fetch(url, options)
   if (response.status !== 200) throw 'Not Found'
   const jason = await response.json()
   if (!jason.tree) throw 'No data recieved'
@@ -22,7 +23,8 @@ export const fetchTree = async (url: string) => {
 // returns default_branch
 
 export const fetchBranch = async (url: string) => {
-  const response = await fetch(url, { headers: { "Authorization" : `Bearer ${authToken}`} } )
+  const options = authToken && { headers: { "Authorization" : `Bearer ${authToken}`} }
+  const response = await fetch(url, options)
   if (response.status !== 200) throw 'Not Found'
   const jason = await response.json()
   if (!jason.default_branch) throw 'No data recieved'
@@ -35,7 +37,9 @@ export const fetchBranch = async (url: string) => {
 // returns login name and avatar_id
 
 export const fetchUser = async () => {
-  const response = await fetch('https://api.github.com/user', { headers: { "Authorization" : `Bearer ${authToken}`} } )
+  const options = authToken && { headers: { "Authorization" : `Bearer ${authToken}`} }
+
+  const response = await fetch('https://api.github.com/user', options )
   if (response.status !== 200) throw 'Need authentication'
   const jason = await response.json()
 

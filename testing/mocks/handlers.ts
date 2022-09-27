@@ -14,8 +14,7 @@ export const handlers = [
     )
   }),
   rest.get(TEST_FetchPrivateTreeAPIUrlWithOutQueries, (req, res, ctx) => {
-    const authHeader = req.headers.get('authorization')
-    if (authHeader.includes(TEST_OAuthToken)) {
+    if (req.headers.has('authorization')) {
       return res(
         ctx.status(200),
         ctx.json({
@@ -40,8 +39,7 @@ export const handlers = [
     )
   }),
   rest.get(TEST_FetchPrivateBranchAPIUrl, (req, res, ctx) => {
-    const authHeader = req.headers.get('authorization')
-    if (authHeader.includes(TEST_OAuthToken)) {
+    if (req.headers.has('authorization')) {
       return res(
         ctx.status(200),
         ctx.json({
@@ -74,8 +72,7 @@ export const handlers = [
     )
   }),
   rest.get('https://api.github.com/user', (req, res, ctx) => {
-    const authHeader = req.headers.get('authorization')
-    if (authHeader.includes(TEST_OAuthToken)) {
+    if (req.headers.has('authorization')) {
       return res(
         ctx.status(200),
         ctx.json({
