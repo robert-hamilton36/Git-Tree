@@ -2,7 +2,7 @@ import { TestMessageListener } from "../background"
 
 import { handleFetchBranch, handleFetchTree, handleLogin, handleLogout } from "../handlers"
 
-import { TEST_FetchBranchTestMessage, TEST_LoginTestMessage, TEST_ReturnBranchTestMessage, TEST_ReturnTreeTestMessage, TEST_ReturnUserMessage } from "../../testing/testdata/Messages"
+import { TEST_FetchBranchTestMessage, TEST_LoginTestMessage, TEST_LogoutTestMessage, TEST_ReturnBranchTestMessage, TEST_ReturnTreeTestMessage, TEST_ReturnUserMessage } from "../../testing/testdata/Messages"
 
 jest.mock('../handlers')
 
@@ -35,7 +35,8 @@ describe('messageListener', () => {
 
   test('it handles a logout message', async () => {
     expect(MockHandleLogout).toHaveBeenCalledTimes(0)
-    handleLogout()
+    const returned = await TestMessageListener(TEST_LogoutTestMessage)
+    expect(returned).toBeFalsy()
     expect(MockHandleLogout).toHaveBeenCalledTimes(1)
   })
 })
