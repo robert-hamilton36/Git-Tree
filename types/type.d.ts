@@ -35,7 +35,7 @@ interface ILogoutMessage {
 }
 
 interface ICheckUserMessage {
-  type: 'userStatus'
+  type: 'currentUser'
 }
 
 interface IReturnUserMessage {
