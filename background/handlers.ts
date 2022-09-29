@@ -1,4 +1,4 @@
-import { fetchBranch, fetchTree, fetchUser, removeOAuthToken, requestCode, requestOAuthToken } from "./api"
+import { fetchBranch, fetchTree, fetchUser, getUserData, removeOAuthToken, removeUserData, requestCode, requestOAuthToken } from "./api"
 
 // fetchs data and sends return message
 
@@ -65,5 +65,17 @@ export const handleLogin = async () => {
 }
 
 export const handleLogout = () => {
-  return removeOAuthToken()
+  removeUserData()
+  removeOAuthToken()
+  return 
+}
+
+export const handleCheckUser = () => {
+  const data = getUserData()
+  const message: IReturnUserMessage = {
+    type: 'user',
+    data
+  }
+  
+  return message
 }

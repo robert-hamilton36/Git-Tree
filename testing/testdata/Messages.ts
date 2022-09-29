@@ -20,6 +20,10 @@ export const TEST_LogoutTestMessage: ILogoutMessage = {
   type: 'logout'
 }
 
+export const TEST_CheckCurrentUserTestMessage: ICheckUserMessage = {
+  type: 'currentUser'
+}
+
 export const TEST_ReturnBranchTestMessage: IReturnBranchMessage = {
   type: 'branch',
   data: TEST_BRANCH

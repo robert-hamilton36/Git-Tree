@@ -1,4 +1,4 @@
-import { fetchBranch, fetchTree, fetchUser, removeOAuthToken, requestCode, requestOAuthToken, TESTING_GetAuthToken, TESTING_SetAuthToken } from "../api"
+import { fetchBranch, fetchTree, fetchUser, getUserData, removeOAuthToken, removeUserData, requestCode, requestOAuthToken, TESTING_GetAuthToken, TESTING_SetAuthToken, TESTING_SetUser } from "../api"
 
 import { v4 as uuidv4 } from 'uuid'
 import { parseCodeAndStateFromURL } from "../util/parseUrl"
@@ -117,12 +117,21 @@ describe('fetchBranch', () => {
 describe('fetchUser', () => {
   afterAll(() => {
     TESTING_SetAuthToken(undefined)
+    TESTING_SetUser(null)
   })
 
   test('returns user data with OAuthToken', async () => {
     TESTING_SetAuthToken(TEST_OAuthToken)
-    const userData = await fetchUser()
-    expect(userData).toEqual(TEST_CleanedUserData)
+    let localData = getUserData()
+
+    expect(localData).toBeNull()
+
+    const returnedUserData = await fetchUser()
+    localData = getUserData()
+    expect(localData).toEqual(TEST_CleanedUserData)
+
+
+    expect(returnedUserData).toEqual(TEST_CleanedUserData)
   })
 
   test('returns error without OAuthToken', async () => {
@@ -204,7 +213,7 @@ describe('requestOAuthToken', () => {
 })
 
 describe('removeOAuthToken', () => {
-  it("sets the auth token to '' an empty string", () => {
+  it("sets the auth token to null", () => {
     TESTING_SetAuthToken(TEST_OAuthToken)
     const token = TESTING_GetAuthToken()
     expect(token).toBe(TEST_OAuthToken)
@@ -212,6 +221,32 @@ describe('removeOAuthToken', () => {
     removeOAuthToken()
 
     const newToken = TESTING_GetAuthToken()
-    expect(newToken).toBe('')
+    expect(newToken).toBeNull()
+  })
+})
+
+describe('getUserData', () => {
+  it('returns the default empty user data', () => {
+    const userData = getUserData()
+    expect(userData).toBeNull()
+  })
+
+  it('returns the user data', () => {
+    TESTING_SetUser(TEST_CleanedUserData)
+    const userData = getUserData()
+    expect(userData).toBe(TEST_CleanedUserData)
+  })
+})
+
+describe('removeUserData', () => {
+  it('sets the user to null', () => {
+    TESTING_SetUser(TEST_CleanedUserData)
+    let userData = getUserData()
+    expect(userData).toBe(TEST_CleanedUserData)
+
+    removeUserData()
+
+    userData = getUserData()
+    expect(userData).toBeNull()
   })
 })

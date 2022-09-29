@@ -2,7 +2,11 @@ import { CLIENT_ID, CLIENT_SECRET, SCOPE } from "../env"
 import { parseCodeAndStateFromURL } from "./util/parseUrl"
 import { v4 as uuidv4 } from 'uuid'
 
+// save auth token in memory
+// more secure than localStorage or in contentscript
+
 let authToken: string
+let user: UserData = null
 
 
 // calls githubapi
@@ -34,6 +38,7 @@ export const fetchBranch = async (url: string) => {
 // calls githubapi
 // `https://api.github.com/user`
 // relies on an auth token to get correct user
+// saves data to user variable in memory
 // returns login name and avatar_id
 
 export const fetchUser = async () => {
@@ -45,6 +50,7 @@ export const fetchUser = async () => {
 
   const { login, avatar_url } = jason
   const data = { login, avatar_url }
+  user = data
   return data as UserData
 }
 
@@ -97,8 +103,18 @@ export const requestOAuthToken = async (code: string) => {
   return 
 }
 
+// resets in memory AuthToken
+
 export const removeOAuthToken = () => {
-  authToken = ''
+  authToken = null
+}
+
+export const getUserData = () => {
+  return user
+}
+
+export const removeUserData = () => {
+  user = null
 }
 
 // functions for testing only
@@ -109,4 +125,8 @@ export const TESTING_SetAuthToken = (token: string) => {
 
 export const TESTING_GetAuthToken = () => {
   return authToken
+}
+
+export const TESTING_SetUser = (newUser: UserData) => {
+  user = newUser
 }

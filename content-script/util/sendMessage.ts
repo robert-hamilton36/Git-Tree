@@ -48,3 +48,16 @@ export const sendLogoutMessage = async () => {
 
   return
 }
+
+export const sendCheckUserMessage = async () => {
+  const message: ICheckUserMessage = {
+    type: 'currentUser'
+  }
+
+  const response = await browser.runtime.sendMessage(message) as IReturnUserMessage | IErrorMessage
+
+  if (response.type === 'error') {
+    throw response.error
+  }
+  return response.data
+}
