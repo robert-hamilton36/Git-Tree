@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
+import { useUserData } from '../../contexts/UserContext'
 import { sendLoginMessage, sendLogoutMessage } from '../../util/sendMessage'
 
 export const Login = () => {
-  const [ user, setUser ] = useState<UserData>(null)
+  const { user, setUser } = useUserData()
   const [ loading, setLoading ] = useState(false)
   const [ error, setError ] = useState(null)
   
