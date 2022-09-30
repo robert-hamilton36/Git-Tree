@@ -10,7 +10,9 @@ export const ViewController: React.FC<Props> = ({loading, error, view}) => {
 
   
   if (view === 'tree') {
-    if (loading) {
+    // if its loading but there is already tree data
+    // keep showing tree data while it loads new data in background
+    if (loading && !tree) {
       return (
         <h1>Loading ...</h1>
       )
