@@ -7,7 +7,7 @@ export function useUserData (): Context {
 }
 
 export const UserProvider: React.FC<ReactChildren> = ({ children }) => {
-  const [user, setUser] = useState<UserData>()
+  const [user, setUser] = useState<UserData>(null)
 
   const value = {
     user,

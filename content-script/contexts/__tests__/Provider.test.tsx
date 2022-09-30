@@ -29,7 +29,7 @@ describe('<Providers>', () => {
     expect(gitRepoResult.current.branch).toEqual('')
     expect(gitRepoResult.current.setBranch).toBeTruthy()
 
-    expect(userDataResult.current.user).toBeUndefined()
+    expect(userDataResult.current.user).toBeNull()
     expect(userDataResult.current.setUser).toBeTruthy()
   })
   test('renders children', () => {

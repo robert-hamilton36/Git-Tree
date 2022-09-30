@@ -8,14 +8,14 @@ describe('<UserProvider>', () => {
     const wrapper = ({ children }: ReactChildren) => <UserProvider> {children} </UserProvider>
     const { result } = renderHook(() => useUserData(), { wrapper })
 
-    expect(result.current.user).toBeUndefined()
+    expect(result.current.user).toBeNull()
   })
 
   test('changes user data', () => {
     const wrapper = ({ children }: ReactChildren) => <UserProvider> {children} </UserProvider>
     const { result } = renderHook(() => useUserData(), { wrapper })
 
-    expect(result.current.user).toBeUndefined()
+    expect(result.current.user).toBeNull()
 
     act(() => result.current.setUser(TEST_APIUserData))
 
