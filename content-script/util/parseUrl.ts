@@ -7,9 +7,9 @@ export const parseUrl = (url: string) => {
   //      [ scheme, domain      , user               , repo     , action, branch]
   const urlArray = url.split(regex)
 
-  const user = urlArray[2] || ''
+  const userName = urlArray[2] || ''
   const repo = urlArray[3] || ''
   const branch = urlArray[5] || ''
 
-  return { user, repo, branch }
+  return { userName, repo, branch }
 }

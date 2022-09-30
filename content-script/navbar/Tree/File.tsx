@@ -10,9 +10,9 @@ interface Props {
 }
 
 export const File: React.FC<Props> = ({item}) => {
-  const { user, repo, branch } = useGitRepo()
+  const { userName, repo, branch } = useGitRepo()
 
-  const urlString = `https://github.com/${user}/${repo}/blob/${branch}/${item.path}` 
+  const urlString = `https://github.com/${userName}/${repo}/blob/${branch}/${item.path}` 
   
   return (
     <li className='GitTree-treeItem'>

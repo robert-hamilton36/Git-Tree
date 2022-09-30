@@ -5,7 +5,7 @@ import { parseUrl } from '../util/parseUrl'
 import {  sendFetchBranchMessage, sendFetchTreeMessage } from '../util/sendMessage'
 
 export const useFetchRepoDetails = (url: string): ReturnType => {
-  const { setUser, setRepo, setBranch } = useGitRepo()
+  const { setUserName, setRepo, setBranch } = useGitRepo()
   const { setTree } = useTree()
 
   const [loading, setLoading ] = useState(false)
@@ -16,20 +16,20 @@ export const useFetchRepoDetails = (url: string): ReturnType => {
       setLoading(true)
       
       const parsedUrl = parseUrl(url)
-      const { user, repo } = parsedUrl
+      const { userName, repo } = parsedUrl
       let { branch } = parsedUrl
 
-      setUser(user)
+      setUserName(userName)
       setRepo(repo)
 
       let treeData: TreeAPI[] = null
       try {
         if (!branch) {
-          branch = await sendFetchBranchMessage(user, repo)
+          branch = await sendFetchBranchMessage(userName, repo)
         }
         setBranch(branch)
 
-        treeData = await sendFetchTreeMessage(user, repo, branch)
+        treeData = await sendFetchTreeMessage(userName, repo, branch)
         setTree(treeData)
       } catch (e) {
         setError(e)
@@ -38,7 +38,7 @@ export const useFetchRepoDetails = (url: string): ReturnType => {
       }
     }
     getRepoData()
-  }, [url, setUser, setRepo, setBranch, setTree])
+  }, [url, setUserName, setRepo, setBranch, setTree])
   return { loading, error }
 }
 

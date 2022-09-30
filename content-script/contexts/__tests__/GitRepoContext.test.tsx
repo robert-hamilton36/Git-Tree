@@ -7,7 +7,7 @@ describe('<GitRepoProvider>', () => {
     const wrapper = ({ children }: ReactChildren) => <GitRepoProvider> {children} </GitRepoProvider>
     const { result } = renderHook(() => useGitRepo(), { wrapper })
 
-    expect(result.current.user).toBe('')
+    expect(result.current.userName).toBe('')
     expect(result.current.repo).toBe('')
     expect(result.current.branch).toBe('')
   })
@@ -16,15 +16,15 @@ describe('<GitRepoProvider>', () => {
     const wrapper = ({ children }: ReactChildren) => <GitRepoProvider> {children} </GitRepoProvider>
     const { result } = renderHook(() => useGitRepo(), { wrapper })
 
-    expect(result.current.user).toBe('')
+    expect(result.current.userName).toBe('')
     expect(result.current.repo).toBe('')
     expect(result.current.branch).toBe('')
 
-    act(() => result.current.setUser('username123'))
+    act(() => result.current.setUserName('username123'))
     act(() => result.current.setRepo('GitTree'))
     act(() => result.current.setBranch('main'))
 
-    expect(result.current.user).toBe('username123')
+    expect(result.current.userName).toBe('username123')
     expect(result.current.repo).toBe('GitTree')
     expect(result.current.branch).toBe('main')
   })

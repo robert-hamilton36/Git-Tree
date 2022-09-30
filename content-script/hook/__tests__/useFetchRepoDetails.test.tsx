@@ -24,7 +24,7 @@ const MockSendFetchBranchMessage = sendFetchBranchMessage as jest.Mock
 const MockSendFetchTreeMessage = sendFetchTreeMessage as jest.Mock
 const MockParseUrl = parseUrl as jest.Mock
 
-const MockSetUser = jest.fn()
+const MockSetUserName = jest.fn()
 const MockSetRepo = jest.fn()
 const MockSetBranch = jest.fn()
 
@@ -32,7 +32,7 @@ const MockSetTree = jest.fn()
 
 describe('useFetchRepoDetails()', () => {
   beforeAll(() => {
-    MockUseGitRepo.mockReturnValue({ setUser: MockSetUser, setRepo: MockSetRepo, setBranch: MockSetBranch })
+    MockUseGitRepo.mockReturnValue({ setUserName: MockSetUserName, setRepo: MockSetRepo, setBranch: MockSetBranch })
     MockUseTree.mockReturnValue({ setTree: MockSetTree })
   })
 
@@ -43,7 +43,7 @@ describe('useFetchRepoDetails()', () => {
   describe('url with a branch', () => {
     beforeAll(() => {
       MockParseUrl.mockReturnValue({
-        user: TEST_USER, 
+        userName: TEST_USER, 
         repo: TEST_REPO, 
         branch: TEST_BRANCH 
       })
@@ -66,8 +66,8 @@ describe('useFetchRepoDetails()', () => {
       expect(result.current.loading).toBeTruthy()
       expect(result.current.error).toBeNull()
   
-      expect(MockSetUser).toHaveBeenCalledTimes(1)
-      expect(MockSetUser).toHaveBeenCalledWith('username123')
+      expect(MockSetUserName).toHaveBeenCalledTimes(1)
+      expect(MockSetUserName).toHaveBeenCalledWith('username123')
   
       expect(MockSetRepo).toHaveBeenCalledTimes(1)
       expect(MockSetRepo).toHaveBeenCalledWith('GitTree')
@@ -108,8 +108,8 @@ describe('useFetchRepoDetails()', () => {
       expect(result.current.loading).toBeTruthy()
       expect(result.current.error).toBeNull()
   
-      expect(MockSetUser).toHaveBeenCalledTimes(1)
-      expect(MockSetUser).toHaveBeenCalledWith('username123')
+      expect(MockSetUserName).toHaveBeenCalledTimes(1)
+      expect(MockSetUserName).toHaveBeenCalledWith('username123')
   
       expect(MockSetRepo).toHaveBeenCalledTimes(1)
       expect(MockSetRepo).toHaveBeenCalledWith('GitTree')
@@ -136,7 +136,7 @@ describe('useFetchRepoDetails()', () => {
   describe('url without a branch', () => {
     beforeAll(() => {
       MockParseUrl.mockReturnValue({
-        user: 'username123', 
+        userName: 'username123', 
         repo: 'GitTree', 
         branch: '' 
       })
@@ -170,8 +170,8 @@ describe('useFetchRepoDetails()', () => {
       expect(result.current.loading).toBeTruthy()
       expect(result.current.error).toBeNull()
 
-      expect(MockSetUser).toHaveBeenCalledTimes(1)
-      expect(MockSetUser).toHaveBeenCalledWith('username123')
+      expect(MockSetUserName).toHaveBeenCalledTimes(1)
+      expect(MockSetUserName).toHaveBeenCalledWith('username123')
 
       expect(MockSetRepo).toHaveBeenCalledTimes(1)
       expect(MockSetRepo).toHaveBeenCalledWith('GitTree')
@@ -229,8 +229,8 @@ describe('useFetchRepoDetails()', () => {
       expect(result.current.loading).toBeTruthy()
       expect(result.current.error).toBeNull()
 
-      expect(MockSetUser).toHaveBeenCalledTimes(1)
-      expect(MockSetUser).toHaveBeenCalledWith('username123')
+      expect(MockSetUserName).toHaveBeenCalledTimes(1)
+      expect(MockSetUserName).toHaveBeenCalledWith('username123')
 
       expect(MockSetRepo).toHaveBeenCalledTimes(1)
       expect(MockSetRepo).toHaveBeenCalledWith('GitTree')
@@ -285,8 +285,8 @@ describe('useFetchRepoDetails()', () => {
       expect(result.current.loading).toBeTruthy()
       expect(result.current.error).toBeNull()
 
-      expect(MockSetUser).toHaveBeenCalledTimes(1)
-      expect(MockSetUser).toHaveBeenCalledWith('username123')
+      expect(MockSetUserName).toHaveBeenCalledTimes(1)
+      expect(MockSetUserName).toHaveBeenCalledWith('username123')
 
       expect(MockSetRepo).toHaveBeenCalledTimes(1)
       expect(MockSetRepo).toHaveBeenCalledWith('GitTree')

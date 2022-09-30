@@ -19,8 +19,9 @@ describe('<Providers>', () => {
 
     expect(treeResult.current.tree).toEqual([])
     expect(treeResult.current.setTree).toBeTruthy()
-    expect(gitRepoResult.current.user).toEqual('')
-    expect(gitRepoResult.current.setUser).toBeTruthy()
+
+    expect(gitRepoResult.current.userName).toEqual('')
+    expect(gitRepoResult.current.setUserName).toBeTruthy()
 
     expect(gitRepoResult.current.repo).toEqual('')
     expect(gitRepoResult.current.setRepo).toBeTruthy()
