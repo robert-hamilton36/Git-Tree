@@ -14,6 +14,7 @@ export const useFetchRepoDetails = (url: string): ReturnType => {
  useEffect(() => {
     const getRepoData = async () => {
       setLoading(true)
+      setError(null)
       
       const parsedUrl = parseUrl(url)
       const { userName, repo } = parsedUrl
