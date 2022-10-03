@@ -117,3 +117,8 @@
   background-color: var(--color-btn-hover-bg);
   border-color: var(--color-btn-hover-border);
 }
+
+.GitTree-spanButton {
+  cursor: pointer;
+  color:  var(--color-accent-fg);
+}

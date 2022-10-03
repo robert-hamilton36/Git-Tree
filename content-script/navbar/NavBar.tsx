@@ -41,7 +41,7 @@ export const NavBar = () => {
         && 
         <Content 
           content={
-            <ViewController loading={loading} error={error} view={view}/>
+            <ViewController loading={loading} error={error} view={view} setView={setView}/>
           }
         /> 
       }

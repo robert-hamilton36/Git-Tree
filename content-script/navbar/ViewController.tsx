@@ -5,8 +5,12 @@ import { filterTree } from '../util/filterTree';
 import { useTree } from '../contexts/TreeContext';
 import { Login } from './User/Login';
 
-export const ViewController: React.FC<Props> = ({loading, error, view}) => {
+export const ViewController: React.FC<Props> = ({loading, error, view, setView}) => {
   const { tree } = useTree()
+
+  const handleLoginClick = () => {
+    setView('user')
+  }
 
   
   if (view === 'tree') {
@@ -23,9 +27,12 @@ export const ViewController: React.FC<Props> = ({loading, error, view}) => {
         <>
           <h1>Error</h1>
           <p>{error}</p>
+          {error === 'Not Found' && <p>If this is a private repo you must <span className='GitTree-spanButton'onClick={handleLoginClick}>login</span> to view</p>}
+
         </>
       )
     }
+
     return (
       <Tree treeData={filterTree(tree)} />
     )
@@ -43,5 +50,6 @@ export const ViewController: React.FC<Props> = ({loading, error, view}) => {
 interface Props {
   loading: boolean;
   error: string;
-  view: PageView
+  view: PageView;
+  setView: React.Dispatch<React.SetStateAction<PageView>>;
 }
