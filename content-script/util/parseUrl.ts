@@ -4,7 +4,7 @@ export const parseUrl = (url: string) => {
 
   // splits url i.e https://github.com/username123/GitTree/tree/main
   // into ['https', 'github.com', 'username123', 'GitTree', 'tree', 'main']
-  //      [ scheme, domain      , user               , repo     , action, branch]
+  //      [ scheme, domain      , user         , repo     , action, branch]
   const urlArray = url.split(regex)
 
   const userName = urlArray[2] || ''
