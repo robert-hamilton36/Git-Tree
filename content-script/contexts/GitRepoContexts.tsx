@@ -7,13 +7,13 @@ export function useGitRepo (): Context {
 }
 
 export const GitRepoProvider: React.FC<Children> = ({ children }) => {
-  const [user, setUser] = useState('')
+  const [userName, setUserName] = useState('')
   const [repo, setRepo] = useState('')
   const [branch, setBranch] = useState('')
 
   const value = {
-    user,
-    setUser,
+    userName,
+    setUserName,
     repo,
     setRepo,
     branch,
@@ -32,8 +32,8 @@ interface Children {
 }
 
 interface Context {
-  user: string;
-  setUser: React.Dispatch<React.SetStateAction<string>>;
+  userName: string;
+  setUserName: React.Dispatch<React.SetStateAction<string>>;
   repo: string;
   setRepo: React.Dispatch<React.SetStateAction<string>>;
   branch: string;

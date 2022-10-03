@@ -1,34 +1,22 @@
 import React from 'react'
-import { Tree } from './Tree/Tree';
+import { useNavWidth } from '../contexts/NavWidthContext'
+import { Header } from './Header'
 
-import { filterTree } from '../util/filterTree';
-import { useFetchRepoDetails } from '../hook/useFetchRepoDetails';
-import { useTree } from '../contexts/TreeContext';
-
-export const Content = () => {
-  const { tree } = useTree()
-  const { loading, error } = useFetchRepoDetails(window.location.href)
-
-  if(loading) {
-    return (
-      <main className='GitTree-treeContainer'>
-        <h1>Loading ...</h1>
-      </main>
-    )
-  }
-
-  if(error) {
-    return (
-      <main className='GitTree-treeContainer'>
-        <h1>Error</h1>
-        <p>{error}</p>
-      </main>
-    )
-  }
-
+export const Content: React.FC<Props> = ({content}) => {
+  const { navWidth } = useNavWidth()
   return (
-    <main className='GitTree-treeContainer'>
-      <Tree treeData={filterTree(tree)} />
-    </main>
+    <div
+      style={{width: navWidth - 1}}
+      className='--color-page-header-bg GitTree-openNavigator'
+    >
+      <Header />
+      <main className='GitTree-treeContainer'>
+        {content}
+      </main>
+    </div>
   )
+}
+
+interface Props {
+  content: React.ReactNode;
 }

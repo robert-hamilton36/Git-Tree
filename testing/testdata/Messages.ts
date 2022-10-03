@@ -1,4 +1,5 @@
 import { TEST_blobOnlyArrayUnsorted } from "./GithubTree"
+import { TEST_CleanedUserData } from "./GithubUser"
 import { TEST_BRANCH, TEST_FetchBranchAPIUrl, TEST_FetchTreeAPIUrl } from "./urls"
 
 export const TEST_FetchTreeTestMessage: IFetchMessage = {
@@ -9,6 +10,18 @@ export const TEST_FetchTreeTestMessage: IFetchMessage = {
 export const TEST_FetchBranchTestMessage: IFetchMessage = {
   type: 'fetchBranch',
   url: TEST_FetchBranchAPIUrl
+}
+
+export const TEST_LoginTestMessage: ILoginMessage = {
+  type: 'login'
+}
+
+export const TEST_LogoutTestMessage: ILogoutMessage = {
+  type: 'logout'
+}
+
+export const TEST_CheckCurrentUserTestMessage: ICheckUserMessage = {
+  type: 'currentUser'
 }
 
 export const TEST_ReturnBranchTestMessage: IReturnBranchMessage = {
@@ -24,4 +37,9 @@ export const TEST_ReturnTreeTestMessage: IReturnTreeMessage = {
 export const TEST_ReturnErrorTestMessage: IErrorMessage = {
   type: 'error',
   error: 'something went wrong'
+}
+
+export const TEST_ReturnUserMessage: IReturnUserMessage = {
+  type: 'user',
+  data: TEST_CleanedUserData
 }

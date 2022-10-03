@@ -13,13 +13,25 @@
 
 .GitTree-closedNavigator {
   height: max(100vh, 100%);
-  width: 50px;
+  width: 48px;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 16px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 4px;
   /* colour variable supplied by github */
   background-color: var(--color-header-bg);
+}
+
+.gitTree-actionItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  width: 48px;
+}
+
+.gitTree-actionItem:hover {
+  background-color: var(--color-border-muted);
 }
 
 .GitTree-header {
@@ -28,7 +40,7 @@
   /* colour variable supplied by github */
   background-color: var(--color-header-bg);
   height: 62px;
-  padding-left: 13px;
+  padding-left: 12px;
 }
 
 .GitTree-treeContainer {
@@ -79,4 +91,34 @@
   border-right-color: var(--color-border-muted);
   border-right-style: solid;
   border-right-width: 3px;
+}
+
+.gitTree-TextHeading {
+  font-weight: 600;
+  /* colour variable supplied by github */
+  color: var(--color-fg-default);
+}
+
+.gitTree-Buttons {
+  /* colour variable supplied by github */
+
+  border-color: var(--color-btn-border);
+
+  padding: 5px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid;
+  border-radius: 6px;
+}
+
+.gitTree-Buttons:hover {
+  /* colour variable supplied by github */
+  background-color: var(--color-btn-hover-bg);
+  border-color: var(--color-btn-hover-border);
+}
+
+.GitTree-spanButton {
+  cursor: pointer;
+  color:  var(--color-accent-fg);
 }

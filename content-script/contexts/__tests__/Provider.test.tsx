@@ -4,6 +4,7 @@ import { Providers } from '../Providers'
 import { useNavWidth } from '../NavWidthContext'
 import { useTree } from '../TreeContext'
 import { useGitRepo } from '../GitRepoContexts'
+import { useUserData } from '../UserContext'
 
 describe('<Providers>', () => {
   test('renders all Providers and has access to all contexts', () => {
@@ -11,6 +12,7 @@ describe('<Providers>', () => {
     const { result: navResult } = renderHook(() => useNavWidth(), { wrapper })
     const { result: treeResult } = renderHook(() => useTree(), { wrapper })
     const { result: gitRepoResult } = renderHook(() => useGitRepo(), { wrapper })
+    const { result: userDataResult } = renderHook(() => useUserData(), { wrapper })
 
     expect(navResult.current.navWidth).toBe(201)
     expect(navResult.current.setNavWidth).toBeTruthy()
@@ -18,14 +20,17 @@ describe('<Providers>', () => {
     expect(treeResult.current.tree).toEqual([])
     expect(treeResult.current.setTree).toBeTruthy()
 
-    expect(gitRepoResult.current.user).toEqual('')
-    expect(gitRepoResult.current.setUser).toBeTruthy()
+    expect(gitRepoResult.current.userName).toEqual('')
+    expect(gitRepoResult.current.setUserName).toBeTruthy()
 
     expect(gitRepoResult.current.repo).toEqual('')
     expect(gitRepoResult.current.setRepo).toBeTruthy()
 
     expect(gitRepoResult.current.branch).toEqual('')
     expect(gitRepoResult.current.setBranch).toBeTruthy()
+
+    expect(userDataResult.current.user).toBeNull()
+    expect(userDataResult.current.setUser).toBeTruthy()
   })
   test('renders children', () => {
     const Children = () => {

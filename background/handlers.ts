@@ -1,4 +1,4 @@
-import { fetchBranch, fetchTree } from "./fetch"
+import { fetchBranch, fetchTree, fetchUser, getUserData, removeOAuthToken, removeUserData, requestCode, requestOAuthToken } from "./api"
 
 // fetchs data and sends return message
 
@@ -14,7 +14,7 @@ export const handleFetchBranch = async (url: string) => {
   } catch (e) {
     const errorMessage: IErrorMessage = {
       type: 'error',
-      error: e.message || 'something went wrong'
+      error: e
     }
 
     return errorMessage
@@ -33,9 +33,49 @@ export const handleFetchTree = async (url: string) => {
   } catch (e) {
     const errorMessage: IErrorMessage = {
       type: 'error',
-      error: e.message || 'something went wrong'
+      error: e
     }
 
     return errorMessage
   }
+}
+
+export const handleLogin = async () => {
+  try {
+    const code = await requestCode()
+    
+    await requestOAuthToken(code)
+    const data = await fetchUser()
+    
+    const message: IReturnUserMessage = {
+      type: 'user',
+      data
+    }
+
+    return message
+
+  } catch (e) {
+    const errorMessage: IErrorMessage = {
+      type: 'error',
+      error: e
+    }
+
+    return errorMessage
+  }
+}
+
+export const handleLogout = () => {
+  removeUserData()
+  removeOAuthToken()
+  return 
+}
+
+export const handleCheckUser = () => {
+  const data = getUserData()
+  const message: IReturnUserMessage = {
+    type: 'user',
+    data
+  }
+  
+  return message
 }

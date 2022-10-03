@@ -6,7 +6,9 @@
   "description": "Adds a git sidebar",
 
   "permissions": [
-    "webNavigation"
+    "https://github.com/login/oauth/access_token/",
+    "webNavigation",
+    "identity"
   ],
 
   "background": {
@@ -20,5 +22,13 @@
       "css": ["styles.css"],
       "run_at": "document_end"
     }
-  ]
+  ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{e6944dd1-8d6a-45c8-86d6-c7704a860447}",
+      "strict_min_version": "42.0"
+    }
+  }
+  
 }
