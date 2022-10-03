@@ -14,7 +14,7 @@ export const handleFetchBranch = async (url: string) => {
   } catch (e) {
     const errorMessage: IErrorMessage = {
       type: 'error',
-      error: e.message || 'something went wrong'
+      error: e
     }
 
     return errorMessage
@@ -33,7 +33,7 @@ export const handleFetchTree = async (url: string) => {
   } catch (e) {
     const errorMessage: IErrorMessage = {
       type: 'error',
-      error: e.message || 'something went wrong'
+      error: e
     }
 
     return errorMessage
@@ -57,7 +57,7 @@ export const handleLogin = async () => {
   } catch (e) {
     const errorMessage: IErrorMessage = {
       type: 'error',
-      error: e.message || 'something went wrong'
+      error: e
     }
 
     return errorMessage

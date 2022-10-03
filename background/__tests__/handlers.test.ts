@@ -26,16 +26,11 @@ describe('handleFetchBranch()', () => {
   })
 
   test('it returns an error message, when it catches a an error with a message', async () => {
-    MockFetchBranch.mockRejectedValue({message: 'something went wrong'})
+    MockFetchBranch.mockRejectedValue('something went wrong')
     const message = await handleFetchBranch(TEST_FetchBranchAPIUrl)
     expect(message).toEqual(TEST_ReturnErrorTestMessage)
   })
 
-  test('it returns an error message, when it catches a an error without a message', async () => {
-    MockFetchBranch.mockRejectedValue('oh noooooooo')
-    const message = await handleFetchBranch(TEST_FetchBranchAPIUrl)
-    expect(message).toEqual(TEST_ReturnErrorTestMessage)
-  })
 })
 
 describe('handleFetchTree()', () => {
@@ -46,13 +41,7 @@ describe('handleFetchTree()', () => {
   })
 
   test('it returns an error message, when it catches a an error with a message', async () => {
-    MockFetchTree.mockRejectedValue({message: 'something went wrong'})
-    const message = await handleFetchTree(TEST_FetchTreeAPIUrl)
-    expect(message).toEqual(TEST_ReturnErrorTestMessage)
-  })
-
-  test('it returns an error message, when it catches a an error without a message', async () => {
-    MockFetchTree.mockRejectedValue('oh noooooooo')
+    MockFetchTree.mockRejectedValue('something went wrong')
     const message = await handleFetchTree(TEST_FetchTreeAPIUrl)
     expect(message).toEqual(TEST_ReturnErrorTestMessage)
   })
@@ -68,14 +57,14 @@ describe('handleLogin()', () => {
   })
 
   test('it returns an error message when requestCode rejects', async () => {
-    MockRequestCode.mockRejectedValue({message: 'something went wrong'})
+    MockRequestCode.mockRejectedValue('something went wrong')
     const message = await handleLogin()
     expect(message).toEqual(TEST_ReturnErrorTestMessage)
   })
 
   test('it returns an error message when requestOAuthToken rejects', async () => {
     MockRequestCode.mockReturnValue('asednksda')
-    MockRequestOAuthToken.mockRejectedValue({message: 'something went wrong'})
+    MockRequestOAuthToken.mockRejectedValue('something went wrong')
     const message = await handleLogin()
     expect(message).toEqual(TEST_ReturnErrorTestMessage)
   })
@@ -83,13 +72,7 @@ describe('handleLogin()', () => {
   test('it returns an error message when fetchUser rejects', async () => {
     MockRequestCode.mockReturnValue('asednksda')
     MockRequestOAuthToken.mockImplementation(() => {return})
-    MockFetchUser.mockRejectedValue({message: 'something went wrong'})
-    const message = await handleLogin()
-    expect(message).toEqual(TEST_ReturnErrorTestMessage)
-  })
-
-  test('it returns an error message, when it catches a an error without a message', async () => {
-    MockRequestCode.mockRejectedValue('oh no')
+    MockFetchUser.mockRejectedValue('something went wrong')
     const message = await handleLogin()
     expect(message).toEqual(TEST_ReturnErrorTestMessage)
   })
