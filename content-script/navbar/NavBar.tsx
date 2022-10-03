@@ -1,15 +1,27 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useFetchRepoDetails } from '../hook/useFetchRepoDetails'
 
 import { Sidebar } from './Sidebar'
 import { Content } from './Content'
 import { ResizeBorder } from './ResizeBorder'
 import { ViewController } from './ViewController'
+import { sendCheckUserMessage } from '../util/sendMessage'
+import { useUserData } from '../contexts/UserContext'
 
 export const NavBar = () => {
   const [showContent, setShowContent] = useState(true)
   const [view, setView] = useState<PageView>('tree')
+  const { setUser } = useUserData()
   const { loading, error } = useFetchRepoDetails(window.location.href)
+
+  useEffect(() => {
+    const getUser = async () => {
+      const user = await sendCheckUserMessage()
+      setUser(user)
+    }
+
+    getUser()
+  }, [setUser])
 
   const handleClick = (newView: PageView) => {
     setView(newView)
