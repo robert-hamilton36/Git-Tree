@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import { editDocumentBodyMargin } from '../util/createElements'
 
 export const startingWidth = 201
 
@@ -9,7 +10,12 @@ export function useNavWidth (): Context {
 }
 
 export const NavWidthProvider: React.FC<ReactChildren> = ({ children }) => {
-  const [navWidth, setNavWidth] = useState(startingWidth)
+  const [navWidth, _setNavWidth] = useState(startingWidth)
+
+  const setNavWidth = (number:number) => {
+    _setNavWidth(number)
+    editDocumentBodyMargin(number)
+  }
 
   const value = {
     navWidth,
