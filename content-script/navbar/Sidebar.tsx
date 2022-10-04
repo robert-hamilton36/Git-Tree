@@ -6,10 +6,13 @@ import { UserSVG } from '../svgs/UserSVG'
   css classes --color-page-header-bg && btn-link color-fg-muted supplied by github
 */
 
+export const sidebarWidth = 48
+
 export const Sidebar: React.FC<Props> = ({handleClick}) => {
   return (
     <div
       className='--color-page-header-bg GitTree-closedNavigator'
+      style={{width: sidebarWidth + 'px'}}
     >
       <ul>
         <li

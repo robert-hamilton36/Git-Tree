@@ -14,7 +14,7 @@
 
 .GitTree-closedNavigator {
   height: max(100vh, 100%);
-  width: 48px;
+  /* width: 48px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;

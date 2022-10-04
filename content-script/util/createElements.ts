@@ -1,3 +1,4 @@
+import { sidebarWidth } from "../navbar/Sidebar"
 
 /**
  * Creates the nav container and inserts before github content
@@ -11,6 +12,8 @@
  *     <nav id='GitTree-nav'> </nav>
  *         <main> stuff </main>
  */
+
+
 // Creates the nav container and inserts before github content
 export const addSidebarNav = () => {
   const nav = document.createElement('nav')
@@ -22,7 +25,7 @@ export const addSidebarNav = () => {
 // This provides space for the navbar to sit 
 export const editDocumentBodyMargin = (width:number) => {
   // 48px is the size of sidebars navigator buttons, when open and closed
-  const sidebarWidth = width + 48
-  const sidebarWidthString = sidebarWidth.toString()
+  const nacWidth = width + sidebarWidth
+  const sidebarWidthString = nacWidth.toString()
   document.body.style.marginLeft = sidebarWidthString + 'px'
 }
