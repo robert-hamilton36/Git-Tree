@@ -1,16 +1,16 @@
 import { createRoot } from "react-dom/client";
 import React from "react";
 import App from "./App"
-import { addGitPageContainer, addSidebarNav } from "./util/createElements";
+import { addSidebarNav, editDocumentBodyMargin } from "./util/createElements";
+import { startingWidth } from "./contexts/NavWidthContext";
 
 /**
- * 1 set body to be flex
- * 2 add container around githubs content, the only child of document.body
- * 3 inserts the side nav bar before the above container
+ * 1 add a left margin to the page
+ * 2 inserts the side nav bar before the above container so that it sits inside the left margin
  */
 
-document.body.style.display = 'flex'
-addGitPageContainer()
+
+editDocumentBodyMargin(startingWidth)
 addSidebarNav()
 
 /**
