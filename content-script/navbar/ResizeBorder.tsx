@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { useNavWidth } from '../contexts/NavWidthContext'
+import { startingWidth, useNavWidth } from '../contexts/NavWidthContext'
 
-const minWidth = 200
+const borderWidth = 3
+const minWidth = startingWidth - borderWidth
 
 /**
  *  Element has full height
@@ -68,7 +69,7 @@ export const ResizeBorder: React.FC<Props> = ({children, showNav, setShowNav}) =
   return (
     <>
       {children}
-      <div className='GitTree-ResizeBorder'
+      <div className='GitTree-ResizeBorder' style={{borderRightWidth: borderWidth}}
         onMouseDown={handleMouseDownClick}
         >
       </div>

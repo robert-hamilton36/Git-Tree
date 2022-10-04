@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 
-const startingWidth = 201
+export const startingWidth = 201
 
 const NavWidthContext = React.createContext<Context>(null)
 
