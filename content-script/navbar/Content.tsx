@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavWidth } from '../contexts/NavWidthContext'
+import { useNavWidth } from '../contexts/NavShowWidthContext'
 import { Header } from './Header'
 
 export const Content: React.FC<Props> = ({content}) => {

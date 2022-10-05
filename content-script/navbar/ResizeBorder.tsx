@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { startingWidth, useNavWidth } from '../contexts/NavWidthContext'
+import { startingWidth, useNavWidth } from '../contexts/NavShowWidthContext'
 
 const borderWidth = 3
 const minWidth = startingWidth - borderWidth

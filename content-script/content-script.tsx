@@ -2,7 +2,7 @@ import { createRoot } from "react-dom/client";
 import React from "react";
 import App from "./App"
 import { addSidebarNav, editDocumentBodyMargin } from "./util/createElements";
-import { startingWidth } from "./contexts/NavWidthContext";
+import { startingWidth } from "./contexts/NavShowWidthContext";
 
 /**
  * 1 add a left margin to the page
