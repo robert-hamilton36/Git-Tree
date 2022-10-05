@@ -39,11 +39,13 @@ export const ResizeBorder: React.FC<Props> = ({children, showNav, setShowNav}) =
   const handler = (event: MouseEvent) => {
     // if the mouse moves off the browsers window stop editing size
     if (resizingActive && event.pageX < 1) {
+      document.body.classList.remove('GitTree-resizeActive')
       setResizingActive(false)
     }
 
     // only resize navbar if resizing is active and resize would be larger than minwidth
     if (resizingActive && event.pageX > minWidth) {
+      document.body.classList.add('GitTree-resizeActive')
       setNavWidth(event.pageX)
     }
     
@@ -63,15 +65,19 @@ export const ResizeBorder: React.FC<Props> = ({children, showNav, setShowNav}) =
   }
 
   const handleMouseUp = () => {
+    document.body.classList.remove('GitTree-resizeActive')
     setResizingActive(false)
   }
 
   return (
     <>
       {children}
-      <div className='GitTree-ResizeBorder' style={{borderRightWidth: borderWidth}}
+      <div
+        className='GitTree-ResizeBorder'
+        style={{ borderRightWidth: borderWidth }}
         onMouseDown={handleMouseDownClick}
-        >
+        onMouseUp={handleMouseUp}
+      >
       </div>
     </>
   )

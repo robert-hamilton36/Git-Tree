@@ -9,7 +9,6 @@
 .GitTree-openNavigator {
   height: 100vh;
   width: 100%;
-  cursor: auto;
 }
 
 .GitTree-closedNavigator {
@@ -122,4 +121,8 @@
 .GitTree-spanButton {
   cursor: pointer;
   color:  var(--color-accent-fg);
+}
+
+.GitTree-resizeActive {
+  cursor: col-resize;
 }
