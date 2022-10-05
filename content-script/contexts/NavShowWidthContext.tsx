@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { editDocumentBodyMargin } from '../util/createElements'
 
-export const startingWidth = 201
+export const startingWidth = 250
 
 const NavWidthContext = React.createContext<WidthContext>(null)
 const ShowNavContext = React.createContext<ShowContext>(null)
