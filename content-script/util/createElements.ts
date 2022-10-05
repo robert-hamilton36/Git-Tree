@@ -1,5 +1,3 @@
-import { sidebarWidth } from "../navbar/Sidebar"
-
 /**
  * Creates the nav container and inserts before github content
  * 
@@ -25,7 +23,7 @@ export const addSidebarNav = () => {
 // This provides space for the navbar to sit 
 export const editDocumentBodyMargin = (width:number) => {
   // 48px is the size of sidebars navigator buttons, when open and closed
-  const nacWidth = width + sidebarWidth
+  const nacWidth = width
   const sidebarWidthString = nacWidth.toString()
   document.body.style.marginLeft = sidebarWidthString + 'px'
 }

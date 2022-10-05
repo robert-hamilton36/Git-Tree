@@ -1,4 +1,3 @@
-import { sidebarWidth } from "../../navbar/Sidebar"
 import { addSidebarNav, editDocumentBodyMargin } from "../createElements"
 
 describe('addSidebarNav()', () => {
@@ -20,6 +19,6 @@ describe('editDocumentBodyMargin()', () => {
 
     editDocumentBodyMargin(400)
 
-    expect(document.body.style.marginLeft).toBe(400 + sidebarWidth +'px')
+    expect(document.body.style.marginLeft).toBe(400 +'px')
   })
 })
