@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, renderHook } from '@testing-library/react'
 import { Providers } from '../Providers'
-import { useNavWidth } from '../NavWidthContext'
+import { startingWidth, useNavWidth, useShowNav } from '../NavShowWidthContext'
 import { useTree } from '../TreeContext'
 import { useGitRepo } from '../GitRepoContexts'
 import { useUserData } from '../UserContext'
@@ -10,12 +10,16 @@ describe('<Providers>', () => {
   test('renders all Providers and has access to all contexts', () => {
     const wrapper = ({ children }: ReactChildren) => <Providers> {children} </Providers>
     const { result: navResult } = renderHook(() => useNavWidth(), { wrapper })
+    const { result: showResult } = renderHook(() => useShowNav(), { wrapper })
     const { result: treeResult } = renderHook(() => useTree(), { wrapper })
     const { result: gitRepoResult } = renderHook(() => useGitRepo(), { wrapper })
     const { result: userDataResult } = renderHook(() => useUserData(), { wrapper })
 
-    expect(navResult.current.navWidth).toBe(201)
+    expect(navResult.current.navWidth).toBe(startingWidth)
     expect(navResult.current.setNavWidth).toBeTruthy()
+
+    expect(showResult.current.showNav).toBe(true)
+    expect(showResult.current.setShowNav).toBeTruthy()
 
     expect(treeResult.current.tree).toEqual([])
     expect(treeResult.current.setTree).toBeTruthy()

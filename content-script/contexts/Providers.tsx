@@ -1,6 +1,6 @@
 import React from 'react'
 import { GitRepoProvider } from './GitRepoContexts'
-import { NavWidthProvider } from './NavWidthContext'
+import { NavWidthProvider } from './NavShowWidthContext'
 import { TreeProvider } from './TreeContext'
 import { UserProvider } from './UserContext'
 

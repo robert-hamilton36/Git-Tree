@@ -1,19 +1,19 @@
 #GitTree-nav {
   display: flex;
-  position: sticky;
+  position: absolute;
   top: 0;
+  left: 0;
   height: 100vh;
 }
 
 .GitTree-openNavigator {
   height: 100vh;
   width: 100%;
-  cursor: auto;
 }
 
 .GitTree-closedNavigator {
   height: max(100vh, 100%);
-  width: 48px;
+  /* width: 48px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -84,13 +84,13 @@
 }
 
 .GitTree-ResizeBorder {
-  width: 3px;
+  /* width: 3px; */
   height: max(100vh, 100%);
   cursor: col-resize;
   /* colour variable supplied by github */
   border-right-color: var(--color-border-muted);
   border-right-style: solid;
-  border-right-width: 3px;
+  /* border-right-width: 3px; */
 }
 
 .gitTree-TextHeading {
@@ -121,4 +121,8 @@
 .GitTree-spanButton {
   cursor: pointer;
   color:  var(--color-accent-fg);
+}
+
+.GitTree-resizeActive {
+  cursor: col-resize;
 }

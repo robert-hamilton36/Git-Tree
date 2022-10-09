@@ -1,45 +1,4 @@
-import { addGitPageContainer, addSidebarNav } from "../createElements"
-
-const fakeGitHubPage = 
-'<div>' +
-  '<header>' +
-    'Github' +
-  '</header>' +
-'</div>' +
-'<div>' +
-  '<main>' +
-    'Repo' +
-  '</main>' +
-'</div>' +
-'<div>' +
-  '<footer>' +
-    '2020 inc' +
-  '</footer>' +
-'</div>'
-
-
-describe('addGitPageContainer()', () => {
-  test('adds div to empty body', () => {
-    expect(document.getElementById('GitTree-Container')).toBeNull()
-
-    addGitPageContainer()
-
-    const container = document.getElementById('GitTree-Container')
-    expect(container).toBeTruthy()
-    expect(document.body.innerHTML).toBe('<div id="GitTree-Container" style="flex-grow: 1;"></div>')
-  })
-
-  test('adds a div around document.body children', () => {
-    document.body.innerHTML = fakeGitHubPage
-    expect(document.getElementById('GitTree-Container')).toBeNull()
-
-    addGitPageContainer()
-
-    const container = document.getElementById('GitTree-Container')
-    expect(container).toBeTruthy()
-    expect(container.innerHTML).toBe(fakeGitHubPage)
-  })
-})
+import { addSidebarNav, editDocumentBodyMargin } from "../createElements"
 
 describe('addSidebarNav()', () => {
   test('adds a sidebar before the rest of document.body children', () => {
@@ -51,5 +10,15 @@ describe('addSidebarNav()', () => {
     const container = document.getElementById('GitTree-nav')
     expect(container).toBeTruthy()
     expect(document.body.innerHTML).toBe('<nav id="GitTree-nav"></nav><div></div>')
+  })
+})
+
+describe('editDocumentBodyMargin()', () => {
+  test('it changes the left margin of body.document', () => {
+    expect(document.body.style.marginLeft).toBe('')
+
+    editDocumentBodyMargin(400)
+
+    expect(document.body.style.marginLeft).toBe(400 +'px')
   })
 })

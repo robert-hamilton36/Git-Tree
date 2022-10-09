@@ -7,10 +7,11 @@ import { ResizeBorder } from './ResizeBorder'
 import { ViewController } from './ViewController'
 import { sendCheckUserMessage } from '../util/sendMessage'
 import { useUserData } from '../contexts/UserContext'
+import { useShowNav } from '../contexts/NavShowWidthContext'
 
 export const NavBar = () => {
-  const [showContent, setShowContent] = useState(true)
   const [view, setView] = useState<PageView>('tree')
+  const { showNav, setShowNav } = useShowNav()
   const { setUser } = useUserData()
   const { loading, error } = useFetchRepoDetails(window.location.href)
 
@@ -23,21 +24,22 @@ export const NavBar = () => {
     getUser()
   }, [setUser])
 
+
   const handleClick = (newView: PageView) => {
     setView(newView)
     // if content is shown and button clicked on is the same as shown close content
-    if (showContent && view === newView) {
-      setShowContent(false)
+    if (showNav && view === newView) {
+      setShowNav(false)
     } else {
-      setShowContent(true)
+      setShowNav(true)
     }
   }
 
   return (
-    <ResizeBorder showNav={showContent} setShowNav={setShowContent}>
+    <ResizeBorder showNav={showNav} setShowNav={setShowNav}>
       <Sidebar handleClick={handleClick}/>
       { 
-        showContent 
+        showNav 
         && 
         <Content 
           content={
